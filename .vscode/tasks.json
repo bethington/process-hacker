@@ -1,0 +1,109 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Appx MakeCert",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_appx_makecert.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build Appx Package",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_appx_package.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build Changelog",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_changelog.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build Clean",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_clean.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build Debug",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_debug.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build Release",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_release.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build SDK Rebuild",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_sdk_rebuild.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "Build SDK",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && build\\build_sdk.cmd"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$msCompile"
+			]
+		}
+	]
+}

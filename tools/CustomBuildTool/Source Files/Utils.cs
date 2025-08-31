@@ -222,6 +222,10 @@ namespace CustomBuildTool
                 if (string.IsNullOrEmpty(vswhereResult))
                     return null;
 
+                // Check for VS 2022 first (Current)
+                if (File.Exists(vswhereResult + "\\MSBuild\\Current\\Bin\\MSBuild.exe"))
+                    return vswhereResult + "\\MSBuild\\Current\\Bin\\MSBuild.exe";
+                // Fall back to VS 2017 (15.0)
                 if (File.Exists(vswhereResult + "\\MSBuild\\15.0\\Bin\\MSBuild.exe"))
                     return vswhereResult + "\\MSBuild\\15.0\\Bin\\MSBuild.exe";
 
@@ -235,6 +239,10 @@ namespace CustomBuildTool
 
                     if (instance != null)
                     {
+                        // Check for VS 2022 first (Current)
+                        if (File.Exists(instance.Path + "\\MSBuild\\Current\\Bin\\MSBuild.exe"))
+                            return instance.Path + "\\MSBuild\\Current\\Bin\\MSBuild.exe";
+                        // Fall back to VS 2017 (15.0)
                         if (File.Exists(instance.Path + "\\MSBuild\\15.0\\Bin\\MSBuild.exe"))
                             return instance.Path + "\\MSBuild\\15.0\\Bin\\MSBuild.exe";
                     }
@@ -270,7 +278,9 @@ namespace CustomBuildTool
                     if (
                         state.HasFlag(InstanceState.Local | InstanceState.Registered | InstanceState.Complete) &&
                         packages.Count() > 0 &&
-                        instance.Version.StartsWith("15.0", StringComparison.OrdinalIgnoreCase)
+                        (instance.Version.StartsWith("17.0", StringComparison.OrdinalIgnoreCase) || 
+                         instance.Version.StartsWith("16.0", StringComparison.OrdinalIgnoreCase) ||
+                         instance.Version.StartsWith("15.0", StringComparison.OrdinalIgnoreCase))
                         )
                     {
                         return instance;

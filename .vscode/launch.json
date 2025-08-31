@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch ProcessHacker (Debug)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/ProcessHacker/ProcessHacker.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/ProcessHacker",
+            "environment": [],
+            "console": "externalTerminal"
+        },
+        {
+            "name": "Launch KProcessHacker (Debug)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/KProcessHacker/KProcessHacker.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/KProcessHacker",
+            "environment": [],
+            "console": "externalTerminal"
+        }
+    ]
+}

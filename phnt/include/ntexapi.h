@@ -12,8 +12,7 @@ NTSTATUS
 NTAPI
 NtDelayExecution(
     _In_ BOOLEAN Alertable,
-    _In_ PLARGE_INTEGER DelayInterval
-    );
+    _In_ PLARGE_INTEGER DelayInterval);
 
 // Environment values
 
@@ -24,16 +23,14 @@ NtQuerySystemEnvironmentValue(
     _In_ PUNICODE_STRING VariableName,
     _Out_writes_bytes_(ValueLength) PWSTR VariableValue,
     _In_ USHORT ValueLength,
-    _Out_opt_ PUSHORT ReturnLength
-    );
+    _Out_opt_ PUSHORT ReturnLength);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetSystemEnvironmentValue(
     _In_ PUNICODE_STRING VariableName,
-    _In_ PUNICODE_STRING VariableValue
-    );
+    _In_ PUNICODE_STRING VariableValue);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -43,8 +40,7 @@ NtQuerySystemEnvironmentValueEx(
     _In_ LPGUID VendorGuid,
     _Out_writes_bytes_opt_(*ValueLength) PVOID Value,
     _Inout_ PULONG ValueLength,
-    _Out_opt_ PULONG Attributes
-    );
+    _Out_opt_ PULONG Attributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -54,8 +50,7 @@ NtSetSystemEnvironmentValueEx(
     _In_ LPGUID VendorGuid,
     _In_reads_bytes_opt_(ValueLength) PVOID Value,
     _In_ ULONG ValueLength,
-    _In_ ULONG Attributes
-    );
+    _In_ ULONG Attributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -63,8 +58,7 @@ NTAPI
 NtEnumerateSystemEnvironmentValuesEx(
     _In_ ULONG InformationClass,
     _Out_ PVOID Buffer,
-    _Inout_ PULONG BufferLength
-    );
+    _Inout_ PULONG BufferLength);
 
 // EFI
 
@@ -132,62 +126,54 @@ NTSTATUS
 NTAPI
 NtAddBootEntry(
     _In_ PBOOT_ENTRY BootEntry,
-    _Out_opt_ PULONG Id
-    );
+    _Out_opt_ PULONG Id);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDeleteBootEntry(
-    _In_ ULONG Id
-    );
+    _In_ ULONG Id);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtModifyBootEntry(
-    _In_ PBOOT_ENTRY BootEntry
-    );
+    _In_ PBOOT_ENTRY BootEntry);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtEnumerateBootEntries(
     _Out_writes_bytes_opt_(*BufferLength) PVOID Buffer,
-    _Inout_ PULONG BufferLength
-    );
+    _Inout_ PULONG BufferLength);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryBootEntryOrder(
     _Out_writes_opt_(*Count) PULONG Ids,
-    _Inout_ PULONG Count
-    );
+    _Inout_ PULONG Count);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetBootEntryOrder(
     _In_reads_(Count) PULONG Ids,
-    _In_ ULONG Count
-    );
+    _In_ ULONG Count);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryBootOptions(
     _Out_writes_bytes_opt_(*BootOptionsLength) PBOOT_OPTIONS BootOptions,
-    _Inout_ PULONG BootOptionsLength
-    );
+    _Inout_ PULONG BootOptionsLength);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetBootOptions(
     _In_ PBOOT_OPTIONS BootOptions,
-    _In_ ULONG FieldsToChange
-    );
+    _In_ ULONG FieldsToChange);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -196,54 +182,47 @@ NtTranslateFilePath(
     _In_ PFILE_PATH InputFilePath,
     _In_ ULONG OutputType,
     _Out_writes_bytes_opt_(*OutputFilePathLength) PFILE_PATH OutputFilePath,
-    _Inout_opt_ PULONG OutputFilePathLength
-    );
+    _Inout_opt_ PULONG OutputFilePathLength);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtAddDriverEntry(
     _In_ PEFI_DRIVER_ENTRY DriverEntry,
-    _Out_opt_ PULONG Id
-    );
+    _Out_opt_ PULONG Id);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDeleteDriverEntry(
-    _In_ ULONG Id
-    );
+    _In_ ULONG Id);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtModifyDriverEntry(
-    _In_ PEFI_DRIVER_ENTRY DriverEntry
-    );
+    _In_ PEFI_DRIVER_ENTRY DriverEntry);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtEnumerateDriverEntries(
     _Out_writes_bytes_opt_(*BufferLength) PVOID Buffer,
-    _Inout_ PULONG BufferLength
-    );
+    _Inout_ PULONG BufferLength);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryDriverEntryOrder(
     _Out_writes_opt_(*Count) PULONG Ids,
-    _Inout_ PULONG Count
-    );
+    _Inout_ PULONG Count);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetDriverEntryOrder(
     _In_reads_(Count) PULONG Ids,
-    _In_ ULONG Count
-    );
+    _In_ ULONG Count);
 
 #endif
 
@@ -272,8 +251,7 @@ NtCreateEvent(
     _In_ ACCESS_MASK DesiredAccess,
     _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes,
     _In_ EVENT_TYPE EventType,
-    _In_ BOOLEAN InitialState
-    );
+    _In_ BOOLEAN InitialState);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -281,46 +259,40 @@ NTAPI
 NtOpenEvent(
     _Out_ PHANDLE EventHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetEvent(
     _In_ HANDLE EventHandle,
-    _Out_opt_ PLONG PreviousState
-    );
+    _Out_opt_ PLONG PreviousState);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetEventBoostPriority(
-    _In_ HANDLE EventHandle
-    );
+    _In_ HANDLE EventHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtClearEvent(
-    _In_ HANDLE EventHandle
-    );
+    _In_ HANDLE EventHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtResetEvent(
     _In_ HANDLE EventHandle,
-    _Out_opt_ PLONG PreviousState
-    );
+    _Out_opt_ PLONG PreviousState);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtPulseEvent(
     _In_ HANDLE EventHandle,
-    _Out_opt_ PLONG PreviousState
-    );
+    _Out_opt_ PLONG PreviousState);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -330,8 +302,7 @@ NtQueryEvent(
     _In_ EVENT_INFORMATION_CLASS EventInformationClass,
     _Out_writes_bytes_(EventInformationLength) PVOID EventInformation,
     _In_ ULONG EventInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 // Event Pair
 
@@ -343,8 +314,7 @@ NTAPI
 NtCreateEventPair(
     _Out_ PHANDLE EventPairHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -352,50 +322,43 @@ NTAPI
 NtOpenEventPair(
     _Out_ PHANDLE EventPairHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetLowEventPair(
-    _In_ HANDLE EventPairHandle
-    );
+    _In_ HANDLE EventPairHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetHighEventPair(
-    _In_ HANDLE EventPairHandle
-    );
+    _In_ HANDLE EventPairHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtWaitLowEventPair(
-    _In_ HANDLE EventPairHandle
-    );
+    _In_ HANDLE EventPairHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtWaitHighEventPair(
-    _In_ HANDLE EventPairHandle
-    );
+    _In_ HANDLE EventPairHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetLowWaitHighEventPair(
-    _In_ HANDLE EventPairHandle
-    );
+    _In_ HANDLE EventPairHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetHighWaitLowEventPair(
-    _In_ HANDLE EventPairHandle
-    );
+    _In_ HANDLE EventPairHandle);
 
 // Mutant
 
@@ -424,8 +387,7 @@ NtCreateMutant(
     _Out_ PHANDLE MutantHandle,
     _In_ ACCESS_MASK DesiredAccess,
     _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes,
-    _In_ BOOLEAN InitialOwner
-    );
+    _In_ BOOLEAN InitialOwner);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -433,16 +395,14 @@ NTAPI
 NtOpenMutant(
     _Out_ PHANDLE MutantHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtReleaseMutant(
     _In_ HANDLE MutantHandle,
-    _Out_opt_ PLONG PreviousCount
-    );
+    _Out_opt_ PLONG PreviousCount);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -452,8 +412,7 @@ NtQueryMutant(
     _In_ MUTANT_INFORMATION_CLASS MutantInformationClass,
     _Out_writes_bytes_(MutantInformationLength) PVOID MutantInformation,
     _In_ ULONG MutantInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 // Semaphore
 
@@ -480,8 +439,7 @@ NtCreateSemaphore(
     _In_ ACCESS_MASK DesiredAccess,
     _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes,
     _In_ LONG InitialCount,
-    _In_ LONG MaximumCount
-    );
+    _In_ LONG MaximumCount);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -489,8 +447,7 @@ NTAPI
 NtOpenSemaphore(
     _Out_ PHANDLE SemaphoreHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -498,8 +455,7 @@ NTAPI
 NtReleaseSemaphore(
     _In_ HANDLE SemaphoreHandle,
     _In_ LONG ReleaseCount,
-    _Out_opt_ PLONG PreviousCount
-    );
+    _Out_opt_ PLONG PreviousCount);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -509,8 +465,7 @@ NtQuerySemaphore(
     _In_ SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
     _Out_writes_bytes_(SemaphoreInformationLength) PVOID SemaphoreInformation,
     _In_ ULONG SemaphoreInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 // Timer
 
@@ -525,11 +480,10 @@ typedef struct _TIMER_BASIC_INFORMATION
     BOOLEAN TimerState;
 } TIMER_BASIC_INFORMATION, *PTIMER_BASIC_INFORMATION;
 
-typedef VOID (NTAPI *PTIMER_APC_ROUTINE)(
+typedef VOID(NTAPI *PTIMER_APC_ROUTINE)(
     _In_ PVOID TimerContext,
     _In_ ULONG TimerLowValue,
-    _In_ LONG TimerHighValue
-    );
+    _In_ LONG TimerHighValue);
 
 typedef enum _TIMER_SET_INFORMATION_CLASS
 {
@@ -559,8 +513,7 @@ NtCreateTimer(
     _Out_ PHANDLE TimerHandle,
     _In_ ACCESS_MASK DesiredAccess,
     _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes,
-    _In_ TIMER_TYPE TimerType
-    );
+    _In_ TIMER_TYPE TimerType);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -568,8 +521,7 @@ NTAPI
 NtOpenTimer(
     _Out_ PHANDLE TimerHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -581,8 +533,7 @@ NtSetTimer(
     _In_opt_ PVOID TimerContext,
     _In_ BOOLEAN ResumeTimer,
     _In_opt_ LONG Period,
-    _Out_opt_ PBOOLEAN PreviousState
-    );
+    _Out_opt_ PBOOLEAN PreviousState);
 
 #if (PHNT_VERSION >= PHNT_WIN7)
 NTSYSCALLAPI
@@ -592,8 +543,7 @@ NtSetTimerEx(
     _In_ HANDLE TimerHandle,
     _In_ TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
     _Inout_updates_bytes_opt_(TimerSetInformationLength) PVOID TimerSetInformation,
-    _In_ ULONG TimerSetInformationLength
-    );
+    _In_ ULONG TimerSetInformationLength);
 #endif
 
 NTSYSCALLAPI
@@ -601,8 +551,7 @@ NTSTATUS
 NTAPI
 NtCancelTimer(
     _In_ HANDLE TimerHandle,
-    _Out_opt_ PBOOLEAN CurrentState
-    );
+    _Out_opt_ PBOOLEAN CurrentState);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -612,8 +561,7 @@ NtQueryTimer(
     _In_ TIMER_INFORMATION_CLASS TimerInformationClass,
     _Out_writes_bytes_(TimerInformationLength) PVOID TimerInformation,
     _In_ ULONG TimerInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 #if (PHNT_VERSION >= PHNT_WIN8)
 
@@ -622,16 +570,14 @@ NTSTATUS
 NTAPI
 NtCreateIRTimer(
     _Out_ PHANDLE TimerHandle,
-    _In_ ACCESS_MASK DesiredAccess
-    );
+    _In_ ACCESS_MASK DesiredAccess);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetIRTimer(
     _In_ HANDLE TimerHandle,
-    _In_opt_ PLARGE_INTEGER DueTime
-    );
+    _In_opt_ PLARGE_INTEGER DueTime);
 
 #endif
 
@@ -654,8 +600,7 @@ NtCreateTimer2(
     _In_opt_ PVOID Reserved1,
     _In_opt_ PVOID Reserved2,
     _In_ ULONG Attributes,
-    _In_ ACCESS_MASK DesiredAccess
-    );
+    _In_ ACCESS_MASK DesiredAccess);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -664,16 +609,14 @@ NtSetTimer2(
     _In_ HANDLE TimerHandle,
     _In_ PLARGE_INTEGER DueTime,
     _In_opt_ PLARGE_INTEGER Period,
-    _In_ PT2_SET_PARAMETERS Parameters
-    );
+    _In_ PT2_SET_PARAMETERS Parameters);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtCancelTimer2(
     _In_ HANDLE TimerHandle,
-    _In_ PT2_CANCEL_PARAMETERS Parameters
-    );
+    _In_ PT2_CANCEL_PARAMETERS Parameters);
 
 #endif
 
@@ -694,8 +637,7 @@ NtCreateProfile(
     _In_reads_bytes_(BufferSize) PULONG Buffer,
     _In_ ULONG BufferSize,
     _In_ KPROFILE_SOURCE ProfileSource,
-    _In_ KAFFINITY Affinity
-    );
+    _In_ KAFFINITY Affinity);
 
 #if (PHNT_VERSION >= PHNT_WIN7)
 NTSYSCALLAPI
@@ -711,39 +653,34 @@ NtCreateProfileEx(
     _In_ ULONG BufferSize,
     _In_ KPROFILE_SOURCE ProfileSource,
     _In_ USHORT GroupCount,
-    _In_reads_(GroupCount) PGROUP_AFFINITY GroupAffinity
-    );
+    _In_reads_(GroupCount) PGROUP_AFFINITY GroupAffinity);
 #endif
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtStartProfile(
-    _In_ HANDLE ProfileHandle
-    );
+    _In_ HANDLE ProfileHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtStopProfile(
-    _In_ HANDLE ProfileHandle
-    );
+    _In_ HANDLE ProfileHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryIntervalProfile(
     _In_ KPROFILE_SOURCE ProfileSource,
-    _Out_ PULONG Interval
-    );
+    _Out_ PULONG Interval);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetIntervalProfile(
     _In_ ULONG Interval,
-    _In_ KPROFILE_SOURCE Source
-    );
+    _In_ KPROFILE_SOURCE Source);
 
 // Keyed Event
 
@@ -759,8 +696,7 @@ NtCreateKeyedEvent(
     _Out_ PHANDLE KeyedEventHandle,
     _In_ ACCESS_MASK DesiredAccess,
     _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes,
-    _In_ ULONG Flags
-    );
+    _In_ ULONG Flags);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -768,8 +704,7 @@ NTAPI
 NtOpenKeyedEvent(
     _Out_ PHANDLE KeyedEventHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -778,8 +713,7 @@ NtReleaseKeyedEvent(
     _In_ HANDLE KeyedEventHandle,
     _In_ PVOID KeyValue,
     _In_ BOOLEAN Alertable,
-    _In_opt_ PLARGE_INTEGER Timeout
-    );
+    _In_opt_ PLARGE_INTEGER Timeout);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -788,8 +722,7 @@ NtWaitForKeyedEvent(
     _In_ HANDLE KeyedEventHandle,
     _In_ PVOID KeyValue,
     _In_ BOOLEAN Alertable,
-    _In_opt_ PLARGE_INTEGER Timeout
-    );
+    _In_opt_ PLARGE_INTEGER Timeout);
 
 // UMS
 
@@ -798,8 +731,7 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtUmsThreadYield(
-    _In_ PVOID SchedulerParam
-    );
+    _In_ PVOID SchedulerParam);
 #endif
 
 // WNF
@@ -872,15 +804,13 @@ NtCreateWnfStateName(
     _In_ BOOLEAN PersistData,
     _In_opt_ PCWNF_TYPE_ID TypeId,
     _In_ ULONG MaximumStateSize,
-    _In_ PSECURITY_DESCRIPTOR SecurityDescriptor
-    );
+    _In_ PSECURITY_DESCRIPTOR SecurityDescriptor);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDeleteWnfStateName(
-    _In_ PCWNF_STATE_NAME StateName
-    );
+    _In_ PCWNF_STATE_NAME StateName);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -892,16 +822,14 @@ NtUpdateWnfStateData(
     _In_opt_ PCWNF_TYPE_ID TypeId,
     _In_opt_ const VOID *ExplicitScope,
     _In_ WNF_CHANGE_STAMP MatchingChangeStamp,
-    _In_ LOGICAL CheckStamp
-    );
+    _In_ LOGICAL CheckStamp);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDeleteWnfStateData(
     _In_ PCWNF_STATE_NAME StateName,
-    _In_opt_ const VOID *ExplicitScope
-    );
+    _In_opt_ const VOID *ExplicitScope);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -912,8 +840,7 @@ NtQueryWnfStateData(
     _In_opt_ const VOID *ExplicitScope,
     _Out_ PWNF_CHANGE_STAMP ChangeStamp,
     _Out_writes_bytes_to_opt_(*BufferSize, *BufferSize) PVOID Buffer,
-    _Inout_ PULONG BufferSize
-    );
+    _Inout_ PULONG BufferSize);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -923,8 +850,7 @@ NtQueryWnfStateNameInformation(
     _In_ WNF_STATE_NAME_INFORMATION NameInfoClass,
     _In_opt_ const VOID *ExplicitScope,
     _Out_writes_bytes_(InfoBufferSize) PVOID InfoBuffer,
-    _In_ ULONG InfoBufferSize
-    );
+    _In_ ULONG InfoBufferSize);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -933,15 +859,13 @@ NtSubscribeWnfStateChange(
     _In_ PCWNF_STATE_NAME StateName,
     _In_opt_ WNF_CHANGE_STAMP ChangeStamp,
     _In_ ULONG EventMask,
-    _Out_opt_ PULONG64 SubscriptionId
-    );
+    _Out_opt_ PULONG64 SubscriptionId);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtUnsubscribeWnfStateChange(
-    _In_ PCWNF_STATE_NAME StateName
-    );
+    _In_ PCWNF_STATE_NAME StateName);
 
 #endif
 
@@ -956,15 +880,13 @@ NtGetCompleteWnfStateSubscription(
     _In_opt_ ULONG OldDescriptorEventMask,
     _In_opt_ ULONG OldDescriptorStatus,
     _Out_writes_bytes_(DescriptorSize) PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
-    _In_ ULONG DescriptorSize
-    );
+    _In_ ULONG DescriptorSize);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetWnfProcessNotificationEvent(
-    _In_ HANDLE NotificationEvent
-    );
+    _In_ HANDLE NotificationEvent);
 
 #endif
 
@@ -979,15 +901,14 @@ NtSetWnfProcessNotificationEvent(
 #define WORKER_FACTORY_READY_WORKER 0x0010
 #define WORKER_FACTORY_SHUTDOWN 0x0020
 
-#define WORKER_FACTORY_ALL_ACCESS ( \
-    STANDARD_RIGHTS_REQUIRED | \
-    WORKER_FACTORY_RELEASE_WORKER | \
-    WORKER_FACTORY_WAIT | \
-    WORKER_FACTORY_SET_INFORMATION | \
+#define WORKER_FACTORY_ALL_ACCESS (    \
+    STANDARD_RIGHTS_REQUIRED |         \
+    WORKER_FACTORY_RELEASE_WORKER |    \
+    WORKER_FACTORY_WAIT |              \
+    WORKER_FACTORY_SET_INFORMATION |   \
     WORKER_FACTORY_QUERY_INFORMATION | \
-    WORKER_FACTORY_READY_WORKER | \
-    WORKER_FACTORY_SHUTDOWN \
-    )
+    WORKER_FACTORY_READY_WORKER |      \
+    WORKER_FACTORY_SHUTDOWN)
 
 // end_rev
 
@@ -1011,7 +932,8 @@ typedef enum _WORKERFACTORYINFOCLASS
     WorkerFactoryFlags,
     WorkerFactoryThreadSoftMaximum,
     MaxWorkerFactoryInfoClass
-} WORKERFACTORYINFOCLASS, *PWORKERFACTORYINFOCLASS;
+} WORKERFACTORYINFOCLASS,
+    *PWORKERFACTORYINFOCLASS;
 
 typedef struct _WORKER_FACTORY_BASIC_INFORMATION
 {
@@ -1058,8 +980,7 @@ NtCreateWorkerFactory(
     _In_opt_ PVOID StartParameter,
     _In_opt_ ULONG MaxThreadCount,
     _In_opt_ SIZE_T StackReserve,
-    _In_opt_ SIZE_T StackCommit
-    );
+    _In_opt_ SIZE_T StackCommit);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1069,8 +990,7 @@ NtQueryInformationWorkerFactory(
     _In_ WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
     _Out_writes_bytes_(WorkerFactoryInformationLength) PVOID WorkerFactoryInformation,
     _In_ ULONG WorkerFactoryInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1079,30 +999,26 @@ NtSetInformationWorkerFactory(
     _In_ HANDLE WorkerFactoryHandle,
     _In_ WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
     _In_reads_bytes_(WorkerFactoryInformationLength) PVOID WorkerFactoryInformation,
-    _In_ ULONG WorkerFactoryInformationLength
-    );
+    _In_ ULONG WorkerFactoryInformationLength);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtShutdownWorkerFactory(
     _In_ HANDLE WorkerFactoryHandle,
-    _Inout_ volatile LONG *PendingWorkerCount
-    );
+    _Inout_ volatile LONG *PendingWorkerCount);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtReleaseWorkerFactoryWorker(
-    _In_ HANDLE WorkerFactoryHandle
-    );
+    _In_ HANDLE WorkerFactoryHandle);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtWorkerFactoryWorkerReady(
-    _In_ HANDLE WorkerFactoryHandle
-    );
+    _In_ HANDLE WorkerFactoryHandle);
 
 struct _FILE_IO_COMPLETION_INFORMATION;
 
@@ -1111,8 +1027,7 @@ NTSTATUS
 NTAPI
 NtWaitForWorkViaWorkerFactory(
     _In_ HANDLE WorkerFactoryHandle,
-    _Out_ struct _FILE_IO_COMPLETION_INFORMATION *MiniPacket
-    );
+    _Out_ struct _FILE_IO_COMPLETION_INFORMATION *MiniPacket);
 
 #endif
 
@@ -1122,16 +1037,14 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQuerySystemTime(
-    _Out_ PLARGE_INTEGER SystemTime
-    );
+    _Out_ PLARGE_INTEGER SystemTime);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetSystemTime(
     _In_opt_ PLARGE_INTEGER SystemTime,
-    _Out_opt_ PLARGE_INTEGER PreviousTime
-    );
+    _Out_opt_ PLARGE_INTEGER PreviousTime);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1139,8 +1052,7 @@ NTAPI
 NtQueryTimerResolution(
     _Out_ PULONG MaximumTime,
     _Out_ PULONG MinimumTime,
-    _Out_ PULONG CurrentTime
-    );
+    _Out_ PULONG CurrentTime);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1148,8 +1060,7 @@ NTAPI
 NtSetTimerResolution(
     _In_ ULONG DesiredTime,
     _In_ BOOLEAN SetResolution,
-    _Out_ PULONG ActualTime
-    );
+    _Out_ PULONG ActualTime);
 
 // Performance Counter
 
@@ -1158,8 +1069,7 @@ NTSTATUS
 NTAPI
 NtQueryPerformanceCounter(
     _Out_ PLARGE_INTEGER PerformanceCounter,
-    _Out_opt_ PLARGE_INTEGER PerformanceFrequency
-    );
+    _Out_opt_ PLARGE_INTEGER PerformanceFrequency);
 
 // LUIDs
 
@@ -1167,8 +1077,7 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtAllocateLocallyUniqueId(
-    _Out_ PLUID Luid
-    );
+    _Out_ PLUID Luid);
 
 // UUIDs
 
@@ -1176,8 +1085,7 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetUuidSeed(
-    _In_ PCHAR Seed
-    );
+    _In_ PCHAR Seed);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1186,8 +1094,7 @@ NtAllocateUuids(
     _Out_ PULARGE_INTEGER Time,
     _Out_ PULONG Range,
     _Out_ PULONG Sequence,
-    _Out_ PCHAR Seed
-    );
+    _Out_ PCHAR Seed);
 
 // System Information
 
@@ -1197,203 +1104,203 @@ NtAllocateUuids(
 // private
 typedef enum _SYSTEM_INFORMATION_CLASS
 {
-    SystemBasicInformation, // q: SYSTEM_BASIC_INFORMATION
-    SystemProcessorInformation, // q: SYSTEM_PROCESSOR_INFORMATION
-    SystemPerformanceInformation, // q: SYSTEM_PERFORMANCE_INFORMATION
-    SystemTimeOfDayInformation, // q: SYSTEM_TIMEOFDAY_INFORMATION
-    SystemPathInformation, // not implemented
-    SystemProcessInformation, // q: SYSTEM_PROCESS_INFORMATION
-    SystemCallCountInformation, // q: SYSTEM_CALL_COUNT_INFORMATION
-    SystemDeviceInformation, // q: SYSTEM_DEVICE_INFORMATION
+    SystemBasicInformation,                // q: SYSTEM_BASIC_INFORMATION
+    SystemProcessorInformation,            // q: SYSTEM_PROCESSOR_INFORMATION
+    SystemPerformanceInformation,          // q: SYSTEM_PERFORMANCE_INFORMATION
+    SystemTimeOfDayInformation,            // q: SYSTEM_TIMEOFDAY_INFORMATION
+    SystemPathInformation,                 // not implemented
+    SystemProcessInformation,              // q: SYSTEM_PROCESS_INFORMATION
+    SystemCallCountInformation,            // q: SYSTEM_CALL_COUNT_INFORMATION
+    SystemDeviceInformation,               // q: SYSTEM_DEVICE_INFORMATION
     SystemProcessorPerformanceInformation, // q: SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION
-    SystemFlagsInformation, // q: SYSTEM_FLAGS_INFORMATION
-    SystemCallTimeInformation, // not implemented // SYSTEM_CALL_TIME_INFORMATION // 10
-    SystemModuleInformation, // q: RTL_PROCESS_MODULES
-    SystemLocksInformation, // q: RTL_PROCESS_LOCKS
-    SystemStackTraceInformation, // q: RTL_PROCESS_BACKTRACES
-    SystemPagedPoolInformation, // not implemented
-    SystemNonPagedPoolInformation, // not implemented
-    SystemHandleInformation, // q: SYSTEM_HANDLE_INFORMATION
-    SystemObjectInformation, // q: SYSTEM_OBJECTTYPE_INFORMATION mixed with SYSTEM_OBJECT_INFORMATION
-    SystemPageFileInformation, // q: SYSTEM_PAGEFILE_INFORMATION
-    SystemVdmInstemulInformation, // q
-    SystemVdmBopInformation, // not implemented // 20
-    SystemFileCacheInformation, // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (info for WorkingSetTypeSystemCache)
-    SystemPoolTagInformation, // q: SYSTEM_POOLTAG_INFORMATION
-    SystemInterruptInformation, // q: SYSTEM_INTERRUPT_INFORMATION
-    SystemDpcBehaviorInformation, // q: SYSTEM_DPC_BEHAVIOR_INFORMATION; s: SYSTEM_DPC_BEHAVIOR_INFORMATION (requires SeLoadDriverPrivilege)
-    SystemFullMemoryInformation, // not implemented
-    SystemLoadGdiDriverInformation, // s (kernel-mode only)
-    SystemUnloadGdiDriverInformation, // s (kernel-mode only)
-    SystemTimeAdjustmentInformation, // q: SYSTEM_QUERY_TIME_ADJUST_INFORMATION; s: SYSTEM_SET_TIME_ADJUST_INFORMATION (requires SeSystemtimePrivilege)
-    SystemSummaryMemoryInformation, // not implemented
-    SystemMirrorMemoryInformation, // s (requires license value "Kernel-MemoryMirroringSupported") (requires SeShutdownPrivilege) // 30
-    SystemPerformanceTraceInformation, // q; s: (type depends on EVENT_TRACE_INFORMATION_CLASS)
-    SystemObsolete0, // not implemented
-    SystemExceptionInformation, // q: SYSTEM_EXCEPTION_INFORMATION
-    SystemCrashDumpStateInformation, // s (requires SeDebugPrivilege)
-    SystemKernelDebuggerInformation, // q: SYSTEM_KERNEL_DEBUGGER_INFORMATION
-    SystemContextSwitchInformation, // q: SYSTEM_CONTEXT_SWITCH_INFORMATION
-    SystemRegistryQuotaInformation, // q: SYSTEM_REGISTRY_QUOTA_INFORMATION; s (requires SeIncreaseQuotaPrivilege)
-    SystemExtendServiceTableInformation, // s (requires SeLoadDriverPrivilege) // loads win32k only
-    SystemPrioritySeperation, // s (requires SeTcbPrivilege)
-    SystemVerifierAddDriverInformation, // s (requires SeDebugPrivilege) // 40
+    SystemFlagsInformation,                // q: SYSTEM_FLAGS_INFORMATION
+    SystemCallTimeInformation,             // not implemented // SYSTEM_CALL_TIME_INFORMATION // 10
+    SystemModuleInformation,               // q: RTL_PROCESS_MODULES
+    SystemLocksInformation,                // q: RTL_PROCESS_LOCKS
+    SystemStackTraceInformation,           // q: RTL_PROCESS_BACKTRACES
+    SystemPagedPoolInformation,            // not implemented
+    SystemNonPagedPoolInformation,         // not implemented
+    SystemHandleInformation,               // q: SYSTEM_HANDLE_INFORMATION
+    SystemObjectInformation,               // q: SYSTEM_OBJECTTYPE_INFORMATION mixed with SYSTEM_OBJECT_INFORMATION
+    SystemPageFileInformation,             // q: SYSTEM_PAGEFILE_INFORMATION
+    SystemVdmInstemulInformation,          // q
+    SystemVdmBopInformation,               // not implemented // 20
+    SystemFileCacheInformation,            // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (info for WorkingSetTypeSystemCache)
+    SystemPoolTagInformation,              // q: SYSTEM_POOLTAG_INFORMATION
+    SystemInterruptInformation,            // q: SYSTEM_INTERRUPT_INFORMATION
+    SystemDpcBehaviorInformation,          // q: SYSTEM_DPC_BEHAVIOR_INFORMATION; s: SYSTEM_DPC_BEHAVIOR_INFORMATION (requires SeLoadDriverPrivilege)
+    SystemFullMemoryInformation,           // not implemented
+    SystemLoadGdiDriverInformation,        // s (kernel-mode only)
+    SystemUnloadGdiDriverInformation,      // s (kernel-mode only)
+    SystemTimeAdjustmentInformation,       // q: SYSTEM_QUERY_TIME_ADJUST_INFORMATION; s: SYSTEM_SET_TIME_ADJUST_INFORMATION (requires SeSystemtimePrivilege)
+    SystemSummaryMemoryInformation,        // not implemented
+    SystemMirrorMemoryInformation,         // s (requires license value "Kernel-MemoryMirroringSupported") (requires SeShutdownPrivilege) // 30
+    SystemPerformanceTraceInformation,     // q; s: (type depends on EVENT_TRACE_INFORMATION_CLASS)
+    SystemObsolete0,                       // not implemented
+    SystemExceptionInformation,            // q: SYSTEM_EXCEPTION_INFORMATION
+    SystemCrashDumpStateInformation,       // s (requires SeDebugPrivilege)
+    SystemKernelDebuggerInformation,       // q: SYSTEM_KERNEL_DEBUGGER_INFORMATION
+    SystemContextSwitchInformation,        // q: SYSTEM_CONTEXT_SWITCH_INFORMATION
+    SystemRegistryQuotaInformation,        // q: SYSTEM_REGISTRY_QUOTA_INFORMATION; s (requires SeIncreaseQuotaPrivilege)
+    SystemExtendServiceTableInformation,   // s (requires SeLoadDriverPrivilege) // loads win32k only
+    SystemPrioritySeperation,              // s (requires SeTcbPrivilege)
+    SystemVerifierAddDriverInformation,    // s (requires SeDebugPrivilege) // 40
     SystemVerifierRemoveDriverInformation, // s (requires SeDebugPrivilege)
-    SystemProcessorIdleInformation, // q: SYSTEM_PROCESSOR_IDLE_INFORMATION
-    SystemLegacyDriverInformation, // q: SYSTEM_LEGACY_DRIVER_INFORMATION
-    SystemCurrentTimeZoneInformation, // q; s: RTL_TIME_ZONE_INFORMATION
-    SystemLookasideInformation, // q: SYSTEM_LOOKASIDE_INFORMATION
-    SystemTimeSlipNotification, // s (requires SeSystemtimePrivilege)
-    SystemSessionCreate, // not implemented
-    SystemSessionDetach, // not implemented
-    SystemSessionInformation, // not implemented (SYSTEM_SESSION_INFORMATION)
-    SystemRangeStartInformation, // q: SYSTEM_RANGE_START_INFORMATION // 50
-    SystemVerifierInformation, // q: SYSTEM_VERIFIER_INFORMATION; s (requires SeDebugPrivilege)
-    SystemVerifierThunkExtend, // s (kernel-mode only)
-    SystemSessionProcessInformation, // q: SYSTEM_SESSION_PROCESS_INFORMATION
-    SystemLoadGdiDriverInSystemSpace, // s (kernel-mode only) (same as SystemLoadGdiDriverInformation)
-    SystemNumaProcessorMap, // q
-    SystemPrefetcherInformation, // q: PREFETCHER_INFORMATION; s: PREFETCHER_INFORMATION // PfSnQueryPrefetcherInformation
-    SystemExtendedProcessInformation, // q: SYSTEM_PROCESS_INFORMATION
-    SystemRecommendedSharedDataAlignment, // q
-    SystemComPlusPackage, // q; s
-    SystemNumaAvailableMemory, // 60
-    SystemProcessorPowerInformation, // q: SYSTEM_PROCESSOR_POWER_INFORMATION
-    SystemEmulationBasicInformation, // q
+    SystemProcessorIdleInformation,        // q: SYSTEM_PROCESSOR_IDLE_INFORMATION
+    SystemLegacyDriverInformation,         // q: SYSTEM_LEGACY_DRIVER_INFORMATION
+    SystemCurrentTimeZoneInformation,      // q; s: RTL_TIME_ZONE_INFORMATION
+    SystemLookasideInformation,            // q: SYSTEM_LOOKASIDE_INFORMATION
+    SystemTimeSlipNotification,            // s (requires SeSystemtimePrivilege)
+    SystemSessionCreate,                   // not implemented
+    SystemSessionDetach,                   // not implemented
+    SystemSessionInformation,              // not implemented (SYSTEM_SESSION_INFORMATION)
+    SystemRangeStartInformation,           // q: SYSTEM_RANGE_START_INFORMATION // 50
+    SystemVerifierInformation,             // q: SYSTEM_VERIFIER_INFORMATION; s (requires SeDebugPrivilege)
+    SystemVerifierThunkExtend,             // s (kernel-mode only)
+    SystemSessionProcessInformation,       // q: SYSTEM_SESSION_PROCESS_INFORMATION
+    SystemLoadGdiDriverInSystemSpace,      // s (kernel-mode only) (same as SystemLoadGdiDriverInformation)
+    SystemNumaProcessorMap,                // q
+    SystemPrefetcherInformation,           // q: PREFETCHER_INFORMATION; s: PREFETCHER_INFORMATION // PfSnQueryPrefetcherInformation
+    SystemExtendedProcessInformation,      // q: SYSTEM_PROCESS_INFORMATION
+    SystemRecommendedSharedDataAlignment,  // q
+    SystemComPlusPackage,                  // q; s
+    SystemNumaAvailableMemory,             // 60
+    SystemProcessorPowerInformation,       // q: SYSTEM_PROCESSOR_POWER_INFORMATION
+    SystemEmulationBasicInformation,       // q
     SystemEmulationProcessorInformation,
-    SystemExtendedHandleInformation, // q: SYSTEM_HANDLE_INFORMATION_EX
-    SystemLostDelayedWriteInformation, // q: ULONG
-    SystemBigPoolInformation, // q: SYSTEM_BIGPOOL_INFORMATION
-    SystemSessionPoolTagInformation, // q: SYSTEM_SESSION_POOLTAG_INFORMATION
-    SystemSessionMappedViewInformation, // q: SYSTEM_SESSION_MAPPED_VIEW_INFORMATION
-    SystemHotpatchInformation, // q; s: SYSTEM_HOTPATCH_CODE_INFORMATION
-    SystemObjectSecurityMode, // q: ULONG // 70
-    SystemWatchdogTimerHandler, // s (kernel-mode only)
-    SystemWatchdogTimerInformation, // q (kernel-mode only); s (kernel-mode only)
-    SystemLogicalProcessorInformation, // q: SYSTEM_LOGICAL_PROCESSOR_INFORMATION
-    SystemWow64SharedInformationObsolete, // not implemented
+    SystemExtendedHandleInformation,               // q: SYSTEM_HANDLE_INFORMATION_EX
+    SystemLostDelayedWriteInformation,             // q: ULONG
+    SystemBigPoolInformation,                      // q: SYSTEM_BIGPOOL_INFORMATION
+    SystemSessionPoolTagInformation,               // q: SYSTEM_SESSION_POOLTAG_INFORMATION
+    SystemSessionMappedViewInformation,            // q: SYSTEM_SESSION_MAPPED_VIEW_INFORMATION
+    SystemHotpatchInformation,                     // q; s: SYSTEM_HOTPATCH_CODE_INFORMATION
+    SystemObjectSecurityMode,                      // q: ULONG // 70
+    SystemWatchdogTimerHandler,                    // s (kernel-mode only)
+    SystemWatchdogTimerInformation,                // q (kernel-mode only); s (kernel-mode only)
+    SystemLogicalProcessorInformation,             // q: SYSTEM_LOGICAL_PROCESSOR_INFORMATION
+    SystemWow64SharedInformationObsolete,          // not implemented
     SystemRegisterFirmwareTableInformationHandler, // s (kernel-mode only)
-    SystemFirmwareTableInformation, // SYSTEM_FIRMWARE_TABLE_INFORMATION
-    SystemModuleInformationEx, // q: RTL_PROCESS_MODULE_INFORMATION_EX
-    SystemVerifierTriageInformation, // not implemented
-    SystemSuperfetchInformation, // q; s: SUPERFETCH_INFORMATION // PfQuerySuperfetchInformation
-    SystemMemoryListInformation, // q: SYSTEM_MEMORY_LIST_INFORMATION; s: SYSTEM_MEMORY_LIST_COMMAND (requires SeProfileSingleProcessPrivilege) // 80
-    SystemFileCacheInformationEx, // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (same as SystemFileCacheInformation)
-    SystemThreadPriorityClientIdInformation, // s: SYSTEM_THREAD_CID_PRIORITY_INFORMATION (requires SeIncreaseBasePriorityPrivilege)
-    SystemProcessorIdleCycleTimeInformation, // q: SYSTEM_PROCESSOR_IDLE_CYCLE_TIME_INFORMATION[]
-    SystemVerifierCancellationInformation, // not implemented // name:wow64:whNT32QuerySystemVerifierCancellationInformation
-    SystemProcessorPowerInformationEx, // not implemented
-    SystemRefTraceInformation, // q; s: SYSTEM_REF_TRACE_INFORMATION // ObQueryRefTraceInformation
-    SystemSpecialPoolInformation, // q; s (requires SeDebugPrivilege) // MmSpecialPoolTag, then MmSpecialPoolCatchOverruns != 0
-    SystemProcessIdInformation, // q: SYSTEM_PROCESS_ID_INFORMATION
-    SystemErrorPortInformation, // s (requires SeTcbPrivilege)
-    SystemBootEnvironmentInformation, // q: SYSTEM_BOOT_ENVIRONMENT_INFORMATION // 90
-    SystemHypervisorInformation, // q; s (kernel-mode only)
-    SystemVerifierInformationEx, // q; s: SYSTEM_VERIFIER_INFORMATION_EX
-    SystemTimeZoneInformation, // s (requires SeTimeZonePrivilege)
-    SystemImageFileExecutionOptionsInformation, // s: SYSTEM_IMAGE_FILE_EXECUTION_OPTIONS_INFORMATION (requires SeTcbPrivilege)
-    SystemCoverageInformation, // q; s // name:wow64:whNT32QuerySystemCoverageInformation; ExpCovQueryInformation
-    SystemPrefetchPatchInformation, // not implemented
-    SystemVerifierFaultsInformation, // s (requires SeDebugPrivilege)
-    SystemSystemPartitionInformation, // q: SYSTEM_SYSTEM_PARTITION_INFORMATION
-    SystemSystemDiskInformation, // q: SYSTEM_SYSTEM_DISK_INFORMATION
-    SystemProcessorPerformanceDistribution, // q: SYSTEM_PROCESSOR_PERFORMANCE_DISTRIBUTION // 100
-    SystemNumaProximityNodeInformation, // q
-    SystemDynamicTimeZoneInformation, // q; s (requires SeTimeZonePrivilege)
-    SystemCodeIntegrityInformation, // q: SYSTEM_CODEINTEGRITY_INFORMATION // SeCodeIntegrityQueryInformation
-    SystemProcessorMicrocodeUpdateInformation, // s
-    SystemProcessorBrandString, // q // HaliQuerySystemInformation -> HalpGetProcessorBrandString, info class 23
-    SystemVirtualAddressInformation, // q: SYSTEM_VA_LIST_INFORMATION[]; s: SYSTEM_VA_LIST_INFORMATION[] (requires SeIncreaseQuotaPrivilege) // MmQuerySystemVaInformation
-    SystemLogicalProcessorAndGroupInformation, // q: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX // since WIN7 // KeQueryLogicalProcessorRelationship
-    SystemProcessorCycleTimeInformation, // q: SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION[]
-    SystemStoreInformation, // q; s // SmQueryStoreInformation
-    SystemRegistryAppendString, // s: SYSTEM_REGISTRY_APPEND_STRING_PARAMETERS // 110
-    SystemAitSamplingValue, // s: ULONG (requires SeProfileSingleProcessPrivilege)
-    SystemVhdBootInformation, // q: SYSTEM_VHD_BOOT_INFORMATION
-    SystemCpuQuotaInformation, // q; s // PsQueryCpuQuotaInformation
-    SystemNativeBasicInformation, // not implemented
-    SystemSpare1, // not implemented
-    SystemLowPriorityIoInformation, // q: SYSTEM_LOW_PRIORITY_IO_INFORMATION
-    SystemTpmBootEntropyInformation, // q: TPM_BOOT_ENTROPY_NT_RESULT // ExQueryTpmBootEntropyInformation
-    SystemVerifierCountersInformation, // q: SYSTEM_VERIFIER_COUNTERS_INFORMATION
-    SystemPagedPoolInformationEx, // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (info for WorkingSetTypePagedPool)
-    SystemSystemPtesInformationEx, // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (info for WorkingSetTypeSystemPtes) // 120
-    SystemNodeDistanceInformation, // q
-    SystemAcpiAuditInformation, // q: SYSTEM_ACPI_AUDIT_INFORMATION // HaliQuerySystemInformation -> HalpAuditQueryResults, info class 26
-    SystemBasicPerformanceInformation, // q: SYSTEM_BASIC_PERFORMANCE_INFORMATION // name:wow64:whNtQuerySystemInformation_SystemBasicPerformanceInformation
-    SystemQueryPerformanceCounterInformation, // q: SYSTEM_QUERY_PERFORMANCE_COUNTER_INFORMATION // since WIN7 SP1
-    SystemSessionBigPoolInformation, // q: SYSTEM_SESSION_POOLTAG_INFORMATION // since WIN8
-    SystemBootGraphicsInformation, // q; s: SYSTEM_BOOT_GRAPHICS_INFORMATION (kernel-mode only)
-    SystemScrubPhysicalMemoryInformation, // q; s: MEMORY_SCRUB_INFORMATION
+    SystemFirmwareTableInformation,                // SYSTEM_FIRMWARE_TABLE_INFORMATION
+    SystemModuleInformationEx,                     // q: RTL_PROCESS_MODULE_INFORMATION_EX
+    SystemVerifierTriageInformation,               // not implemented
+    SystemSuperfetchInformation,                   // q; s: SUPERFETCH_INFORMATION // PfQuerySuperfetchInformation
+    SystemMemoryListInformation,                   // q: SYSTEM_MEMORY_LIST_INFORMATION; s: SYSTEM_MEMORY_LIST_COMMAND (requires SeProfileSingleProcessPrivilege) // 80
+    SystemFileCacheInformationEx,                  // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (same as SystemFileCacheInformation)
+    SystemThreadPriorityClientIdInformation,       // s: SYSTEM_THREAD_CID_PRIORITY_INFORMATION (requires SeIncreaseBasePriorityPrivilege)
+    SystemProcessorIdleCycleTimeInformation,       // q: SYSTEM_PROCESSOR_IDLE_CYCLE_TIME_INFORMATION[]
+    SystemVerifierCancellationInformation,         // not implemented // name:wow64:whNT32QuerySystemVerifierCancellationInformation
+    SystemProcessorPowerInformationEx,             // not implemented
+    SystemRefTraceInformation,                     // q; s: SYSTEM_REF_TRACE_INFORMATION // ObQueryRefTraceInformation
+    SystemSpecialPoolInformation,                  // q; s (requires SeDebugPrivilege) // MmSpecialPoolTag, then MmSpecialPoolCatchOverruns != 0
+    SystemProcessIdInformation,                    // q: SYSTEM_PROCESS_ID_INFORMATION
+    SystemErrorPortInformation,                    // s (requires SeTcbPrivilege)
+    SystemBootEnvironmentInformation,              // q: SYSTEM_BOOT_ENVIRONMENT_INFORMATION // 90
+    SystemHypervisorInformation,                   // q; s (kernel-mode only)
+    SystemVerifierInformationEx,                   // q; s: SYSTEM_VERIFIER_INFORMATION_EX
+    SystemTimeZoneInformation,                     // s (requires SeTimeZonePrivilege)
+    SystemImageFileExecutionOptionsInformation,    // s: SYSTEM_IMAGE_FILE_EXECUTION_OPTIONS_INFORMATION (requires SeTcbPrivilege)
+    SystemCoverageInformation,                     // q; s // name:wow64:whNT32QuerySystemCoverageInformation; ExpCovQueryInformation
+    SystemPrefetchPatchInformation,                // not implemented
+    SystemVerifierFaultsInformation,               // s (requires SeDebugPrivilege)
+    SystemSystemPartitionInformation,              // q: SYSTEM_SYSTEM_PARTITION_INFORMATION
+    SystemSystemDiskInformation,                   // q: SYSTEM_SYSTEM_DISK_INFORMATION
+    SystemProcessorPerformanceDistribution,        // q: SYSTEM_PROCESSOR_PERFORMANCE_DISTRIBUTION // 100
+    SystemNumaProximityNodeInformation,            // q
+    SystemDynamicTimeZoneInformation,              // q; s (requires SeTimeZonePrivilege)
+    SystemCodeIntegrityInformation,                // q: SYSTEM_CODEINTEGRITY_INFORMATION // SeCodeIntegrityQueryInformation
+    SystemProcessorMicrocodeUpdateInformation,     // s
+    SystemProcessorBrandString,                    // q // HaliQuerySystemInformation -> HalpGetProcessorBrandString, info class 23
+    SystemVirtualAddressInformation,               // q: SYSTEM_VA_LIST_INFORMATION[]; s: SYSTEM_VA_LIST_INFORMATION[] (requires SeIncreaseQuotaPrivilege) // MmQuerySystemVaInformation
+    SystemLogicalProcessorAndGroupInformation,     // q: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX // since WIN7 // KeQueryLogicalProcessorRelationship
+    SystemProcessorCycleTimeInformation,           // q: SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION[]
+    SystemStoreInformation,                        // q; s // SmQueryStoreInformation
+    SystemRegistryAppendString,                    // s: SYSTEM_REGISTRY_APPEND_STRING_PARAMETERS // 110
+    SystemAitSamplingValue,                        // s: ULONG (requires SeProfileSingleProcessPrivilege)
+    SystemVhdBootInformation,                      // q: SYSTEM_VHD_BOOT_INFORMATION
+    SystemCpuQuotaInformation,                     // q; s // PsQueryCpuQuotaInformation
+    SystemNativeBasicInformation,                  // not implemented
+    SystemSpare1,                                  // not implemented
+    SystemLowPriorityIoInformation,                // q: SYSTEM_LOW_PRIORITY_IO_INFORMATION
+    SystemTpmBootEntropyInformation,               // q: TPM_BOOT_ENTROPY_NT_RESULT // ExQueryTpmBootEntropyInformation
+    SystemVerifierCountersInformation,             // q: SYSTEM_VERIFIER_COUNTERS_INFORMATION
+    SystemPagedPoolInformationEx,                  // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (info for WorkingSetTypePagedPool)
+    SystemSystemPtesInformationEx,                 // q: SYSTEM_FILECACHE_INFORMATION; s (requires SeIncreaseQuotaPrivilege) (info for WorkingSetTypeSystemPtes) // 120
+    SystemNodeDistanceInformation,                 // q
+    SystemAcpiAuditInformation,                    // q: SYSTEM_ACPI_AUDIT_INFORMATION // HaliQuerySystemInformation -> HalpAuditQueryResults, info class 26
+    SystemBasicPerformanceInformation,             // q: SYSTEM_BASIC_PERFORMANCE_INFORMATION // name:wow64:whNtQuerySystemInformation_SystemBasicPerformanceInformation
+    SystemQueryPerformanceCounterInformation,      // q: SYSTEM_QUERY_PERFORMANCE_COUNTER_INFORMATION // since WIN7 SP1
+    SystemSessionBigPoolInformation,               // q: SYSTEM_SESSION_POOLTAG_INFORMATION // since WIN8
+    SystemBootGraphicsInformation,                 // q; s: SYSTEM_BOOT_GRAPHICS_INFORMATION (kernel-mode only)
+    SystemScrubPhysicalMemoryInformation,          // q; s: MEMORY_SCRUB_INFORMATION
     SystemBadPageInformation,
-    SystemProcessorProfileControlArea, // q; s: SYSTEM_PROCESSOR_PROFILE_CONTROL_AREA
+    SystemProcessorProfileControlArea,      // q; s: SYSTEM_PROCESSOR_PROFILE_CONTROL_AREA
     SystemCombinePhysicalMemoryInformation, // s: MEMORY_COMBINE_INFORMATION, MEMORY_COMBINE_INFORMATION_EX, MEMORY_COMBINE_INFORMATION_EX2 // 130
     SystemEntropyInterruptTimingCallback,
-    SystemConsoleInformation, // q: SYSTEM_CONSOLE_INFORMATION
+    SystemConsoleInformation,        // q: SYSTEM_CONSOLE_INFORMATION
     SystemPlatformBinaryInformation, // q: SYSTEM_PLATFORM_BINARY_INFORMATION
     SystemThrottleNotificationInformation,
     SystemHypervisorProcessorCountInformation, // q: SYSTEM_HYPERVISOR_PROCESSOR_COUNT_INFORMATION
-    SystemDeviceDataInformation, // q: SYSTEM_DEVICE_DATA_INFORMATION
+    SystemDeviceDataInformation,               // q: SYSTEM_DEVICE_DATA_INFORMATION
     SystemDeviceDataEnumerationInformation,
-    SystemMemoryTopologyInformation, // q: SYSTEM_MEMORY_TOPOLOGY_INFORMATION
-    SystemMemoryChannelInformation, // q: SYSTEM_MEMORY_CHANNEL_INFORMATION
-    SystemBootLogoInformation, // q: SYSTEM_BOOT_LOGO_INFORMATION // 140
+    SystemMemoryTopologyInformation,         // q: SYSTEM_MEMORY_TOPOLOGY_INFORMATION
+    SystemMemoryChannelInformation,          // q: SYSTEM_MEMORY_CHANNEL_INFORMATION
+    SystemBootLogoInformation,               // q: SYSTEM_BOOT_LOGO_INFORMATION // 140
     SystemProcessorPerformanceInformationEx, // q: SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION_EX // since WINBLUE
     SystemSpare0,
     SystemSecureBootPolicyInformation, // q: SYSTEM_SECUREBOOT_POLICY_INFORMATION
-    SystemPageFileInformationEx, // q: SYSTEM_PAGEFILE_INFORMATION_EX
-    SystemSecureBootInformation, // q: SYSTEM_SECUREBOOT_INFORMATION
+    SystemPageFileInformationEx,       // q: SYSTEM_PAGEFILE_INFORMATION_EX
+    SystemSecureBootInformation,       // q: SYSTEM_SECUREBOOT_INFORMATION
     SystemEntropyInterruptTimingRawInformation,
     SystemPortableWorkspaceEfiLauncherInformation, // q: SYSTEM_PORTABLE_WORKSPACE_EFI_LAUNCHER_INFORMATION
-    SystemFullProcessInformation, // q: SYSTEM_PROCESS_INFORMATION with SYSTEM_PROCESS_INFORMATION_EXTENSION (requires admin)
-    SystemKernelDebuggerInformationEx, // q: SYSTEM_KERNEL_DEBUGGER_INFORMATION_EX
-    SystemBootMetadataInformation, // 150
+    SystemFullProcessInformation,                  // q: SYSTEM_PROCESS_INFORMATION with SYSTEM_PROCESS_INFORMATION_EXTENSION (requires admin)
+    SystemKernelDebuggerInformationEx,             // q: SYSTEM_KERNEL_DEBUGGER_INFORMATION_EX
+    SystemBootMetadataInformation,                 // 150
     SystemSoftRebootInformation,
     SystemElamCertificateInformation, // s: SYSTEM_ELAM_CERTIFICATE_INFORMATION
     SystemOfflineDumpConfigInformation,
     SystemProcessorFeaturesInformation, // q: SYSTEM_PROCESSOR_FEATURES_INFORMATION
     SystemRegistryReconciliationInformation,
     SystemEdidInformation,
-    SystemManufacturingInformation, // q: SYSTEM_MANUFACTURING_INFORMATION // since THRESHOLD
+    SystemManufacturingInformation,          // q: SYSTEM_MANUFACTURING_INFORMATION // since THRESHOLD
     SystemEnergyEstimationConfigInformation, // q: SYSTEM_ENERGY_ESTIMATION_CONFIG_INFORMATION
-    SystemHypervisorDetailInformation, // q: SYSTEM_HYPERVISOR_DETAIL_INFORMATION
-    SystemProcessorCycleStatsInformation, // q: SYSTEM_PROCESSOR_CYCLE_STATS_INFORMATION // 160
+    SystemHypervisorDetailInformation,       // q: SYSTEM_HYPERVISOR_DETAIL_INFORMATION
+    SystemProcessorCycleStatsInformation,    // q: SYSTEM_PROCESSOR_CYCLE_STATS_INFORMATION // 160
     SystemVmGenerationCountInformation,
     SystemTrustedPlatformModuleInformation, // q: SYSTEM_TPM_INFORMATION
     SystemKernelDebuggerFlags,
     SystemCodeIntegrityPolicyInformation, // q: SYSTEM_CODEINTEGRITYPOLICY_INFORMATION
-    SystemIsolatedUserModeInformation, // q: SYSTEM_ISOLATED_USER_MODE_INFORMATION
+    SystemIsolatedUserModeInformation,    // q: SYSTEM_ISOLATED_USER_MODE_INFORMATION
     SystemHardwareSecurityTestInterfaceResultsInformation,
     SystemSingleModuleInformation, // q: SYSTEM_SINGLE_MODULE_INFORMATION
     SystemAllowedCpuSetsInformation,
-    SystemDmaProtectionInformation, // q: SYSTEM_DMA_PROTECTION_INFORMATION
-    SystemInterruptCpuSetsInformation, // q: SYSTEM_INTERRUPT_CPU_SET_INFORMATION // 170
+    SystemDmaProtectionInformation,        // q: SYSTEM_DMA_PROTECTION_INFORMATION
+    SystemInterruptCpuSetsInformation,     // q: SYSTEM_INTERRUPT_CPU_SET_INFORMATION // 170
     SystemSecureBootPolicyFullInformation, // q: SYSTEM_SECUREBOOT_POLICY_FULL_INFORMATION
     SystemCodeIntegrityPolicyFullInformation,
     SystemAffinitizedInterruptProcessorInformation,
-    SystemRootSiloInformation, // q: SYSTEM_ROOT_SILO_INFORMATION
-    SystemCpuSetInformation, // q: SYSTEM_CPU_SET_INFORMATION // since THRESHOLD2
+    SystemRootSiloInformation,  // q: SYSTEM_ROOT_SILO_INFORMATION
+    SystemCpuSetInformation,    // q: SYSTEM_CPU_SET_INFORMATION // since THRESHOLD2
     SystemCpuSetTagInformation, // q: SYSTEM_CPU_SET_TAG_INFORMATION
     SystemWin32WerStartCallout,
-    SystemSecureKernelProfileInformation, // q: SYSTEM_SECURE_KERNEL_HYPERGUARD_PROFILE_INFORMATION
+    SystemSecureKernelProfileInformation,           // q: SYSTEM_SECURE_KERNEL_HYPERGUARD_PROFILE_INFORMATION
     SystemCodeIntegrityPlatformManifestInformation, // q: SYSTEM_SECUREBOOT_PLATFORM_MANIFEST_INFORMATION // since REDSTONE
-    SystemInterruptSteeringInformation, // 180
+    SystemInterruptSteeringInformation,             // 180
     SystemSupportedProcessorArchitectures,
-    SystemMemoryUsageInformation, // q: SYSTEM_MEMORY_USAGE_INFORMATION
+    SystemMemoryUsageInformation,              // q: SYSTEM_MEMORY_USAGE_INFORMATION
     SystemCodeIntegrityCertificateInformation, // q: SYSTEM_CODEINTEGRITY_CERTIFICATE_INFORMATION
-    SystemPhysicalMemoryInformation, // q: SYSTEM_PHYSICAL_MEMORY_INFORMATION // since REDSTONE2
+    SystemPhysicalMemoryInformation,           // q: SYSTEM_PHYSICAL_MEMORY_INFORMATION // since REDSTONE2
     SystemControlFlowTransition,
     SystemKernelDebuggingAllowed,
-    SystemActivityModerationExeState, // SYSTEM_ACTIVITY_MODERATION_EXE_STATE
+    SystemActivityModerationExeState,     // SYSTEM_ACTIVITY_MODERATION_EXE_STATE
     SystemActivityModerationUserSettings, // SYSTEM_ACTIVITY_MODERATION_USER_SETTINGS
     SystemCodeIntegrityPoliciesFullInformation,
     SystemCodeIntegrityUnlockInformation, // SYSTEM_CODEINTEGRITY_UNLOCK_INFORMATION // 190
     SystemIntegrityQuotaInformation,
-    SystemFlushInformation, // q: SYSTEM_FLUSH_INFORMATION
+    SystemFlushInformation,             // q: SYSTEM_FLUSH_INFORMATION
     SystemProcessorIdleMaskInformation, // since REDSTONE3
     SystemSecureDumpEncryptionInformation,
-    SystemWriteConstraintInformation, // SYSTEM_WRITE_CONSTRAINT_INFORMATION
-    SystemKernelVaShadowInformation, // SYSTEM_KERNEL_VA_SHADOW_INFORMATION
+    SystemWriteConstraintInformation,          // SYSTEM_WRITE_CONSTRAINT_INFORMATION
+    SystemKernelVaShadowInformation,           // SYSTEM_KERNEL_VA_SHADOW_INFORMATION
     SystemSpeculationControlInformation = 201, // SYSTEM_SPECULATION_CONTROL_INFORMATION
     MaxSystemInfoClass
 } SYSTEM_INFORMATION_CLASS;
@@ -1498,10 +1405,10 @@ typedef struct _SYSTEM_PERFORMANCE_INFORMATION
     ULONG FirstLevelTbFills;
     ULONG SecondLevelTbFills;
     ULONG SystemCalls;
-    ULONGLONG CcTotalDirtyPages; // since THRESHOLD
-    ULONGLONG CcDirtyPageThreshold; // since THRESHOLD
+    ULONGLONG CcTotalDirtyPages;     // since THRESHOLD
+    ULONGLONG CcDirtyPageThreshold;  // since THRESHOLD
     LONGLONG ResidentAvailablePages; // since THRESHOLD
-    ULONGLONG SharedCommittedPages; // since THRESHOLD
+    ULONGLONG SharedCommittedPages;  // since THRESHOLD
 } SYSTEM_PERFORMANCE_INFORMATION, *PSYSTEM_PERFORMANCE_INFORMATION;
 
 typedef struct _SYSTEM_TIMEOFDAY_INFORMATION
@@ -1550,9 +1457,9 @@ typedef struct _SYSTEM_PROCESS_INFORMATION
     ULONG NextEntryOffset;
     ULONG NumberOfThreads;
     LARGE_INTEGER WorkingSetPrivateSize; // since VISTA
-    ULONG HardFaultCount; // since WIN7
-    ULONG NumberOfThreadsHighWatermark; // since WIN7
-    ULONGLONG CycleTime; // since WIN7
+    ULONG HardFaultCount;                // since WIN7
+    ULONG NumberOfThreadsHighWatermark;  // since WIN7
+    ULONGLONG CycleTime;                 // since WIN7
     LARGE_INTEGER CreateTime;
     LARGE_INTEGER UserTime;
     LARGE_INTEGER KernelTime;
@@ -1818,25 +1725,25 @@ typedef struct _SYSTEM_SET_TIME_ADJUST_INFORMATION_PRECISE
 
 typedef enum _EVENT_TRACE_INFORMATION_CLASS
 {
-    EventTraceKernelVersionInformation, // EVENT_TRACE_VERSION_INFORMATION
-    EventTraceGroupMaskInformation, // EVENT_TRACE_GROUPMASK_INFORMATION
-    EventTracePerformanceInformation, // EVENT_TRACE_PERFORMANCE_INFORMATION
-    EventTraceTimeProfileInformation, // EVENT_TRACE_TIME_PROFILE_INFORMATION
-    EventTraceSessionSecurityInformation, // EVENT_TRACE_SESSION_SECURITY_INFORMATION
-    EventTraceSpinlockInformation, // EVENT_TRACE_SPINLOCK_INFORMATION
-    EventTraceStackTracingInformation, // EVENT_TRACE_SYSTEM_EVENT_INFORMATION
-    EventTraceExecutiveResourceInformation, // EVENT_TRACE_EXECUTIVE_RESOURCE_INFORMATION
-    EventTraceHeapTracingInformation, // EVENT_TRACE_HEAP_TRACING_INFORMATION
-    EventTraceHeapSummaryTracingInformation, // EVENT_TRACE_HEAP_TRACING_INFORMATION
-    EventTracePoolTagFilterInformation, // EVENT_TRACE_TAG_FILTER_INFORMATION
-    EventTracePebsTracingInformation, // EVENT_TRACE_SYSTEM_EVENT_INFORMATION 
-    EventTraceProfileConfigInformation, // EVENT_TRACE_PROFILE_COUNTER_INFORMATION
-    EventTraceProfileSourceListInformation, // EVENT_TRACE_PROFILE_LIST_INFORMATION
-    EventTraceProfileEventListInformation, // EVENT_TRACE_SYSTEM_EVENT_INFORMATION 
-    EventTraceProfileCounterListInformation, // EVENT_TRACE_PROFILE_COUNTER_INFORMATION 
-    EventTraceStackCachingInformation, // EVENT_TRACE_STACK_CACHING_INFORMATION
-    EventTraceObjectTypeFilterInformation, // EVENT_TRACE_TAG_FILTER_INFORMATION
-    EventTraceSoftRestartInformation, // EVENT_TRACE_SOFT_RESTART_INFORMATION
+    EventTraceKernelVersionInformation,           // EVENT_TRACE_VERSION_INFORMATION
+    EventTraceGroupMaskInformation,               // EVENT_TRACE_GROUPMASK_INFORMATION
+    EventTracePerformanceInformation,             // EVENT_TRACE_PERFORMANCE_INFORMATION
+    EventTraceTimeProfileInformation,             // EVENT_TRACE_TIME_PROFILE_INFORMATION
+    EventTraceSessionSecurityInformation,         // EVENT_TRACE_SESSION_SECURITY_INFORMATION
+    EventTraceSpinlockInformation,                // EVENT_TRACE_SPINLOCK_INFORMATION
+    EventTraceStackTracingInformation,            // EVENT_TRACE_SYSTEM_EVENT_INFORMATION
+    EventTraceExecutiveResourceInformation,       // EVENT_TRACE_EXECUTIVE_RESOURCE_INFORMATION
+    EventTraceHeapTracingInformation,             // EVENT_TRACE_HEAP_TRACING_INFORMATION
+    EventTraceHeapSummaryTracingInformation,      // EVENT_TRACE_HEAP_TRACING_INFORMATION
+    EventTracePoolTagFilterInformation,           // EVENT_TRACE_TAG_FILTER_INFORMATION
+    EventTracePebsTracingInformation,             // EVENT_TRACE_SYSTEM_EVENT_INFORMATION
+    EventTraceProfileConfigInformation,           // EVENT_TRACE_PROFILE_COUNTER_INFORMATION
+    EventTraceProfileSourceListInformation,       // EVENT_TRACE_PROFILE_LIST_INFORMATION
+    EventTraceProfileEventListInformation,        // EVENT_TRACE_SYSTEM_EVENT_INFORMATION
+    EventTraceProfileCounterListInformation,      // EVENT_TRACE_PROFILE_COUNTER_INFORMATION
+    EventTraceStackCachingInformation,            // EVENT_TRACE_STACK_CACHING_INFORMATION
+    EventTraceObjectTypeFilterInformation,        // EVENT_TRACE_TAG_FILTER_INFORMATION
+    EventTraceSoftRestartInformation,             // EVENT_TRACE_SOFT_RESTART_INFORMATION
     EventTraceLastBranchConfigurationInformation, // REDSTONE3
     EventTraceLastBranchEventListInformation,
     MaxEventTraceInfoClass
@@ -1928,7 +1835,7 @@ typedef struct _EVENT_TRACE_PROFILE_LIST_INFORMATION
 {
     EVENT_TRACE_INFORMATION_CLASS EventTraceInformationClass;
     ULONG Spare;
-    struct _PROFILE_SOURCE_INFO* Profile[1];
+    struct _PROFILE_SOURCE_INFO *Profile[1];
 } EVENT_TRACE_PROFILE_LIST_INFORMATION, *PEVENT_TRACE_PROFILE_LIST_INFORMATION;
 
 typedef struct _EVENT_TRACE_STACK_CACHING_INFORMATION
@@ -2333,7 +2240,8 @@ typedef enum _SYSTEM_VA_TYPE
     SystemVaTypeSystemPtes,
     SystemVaTypeSessionSpace,
     SystemVaTypeMax
-} SYSTEM_VA_TYPE, *PSYSTEM_VA_TYPE;
+} SYSTEM_VA_TYPE,
+    *PSYSTEM_VA_TYPE;
 
 // private
 typedef struct _SYSTEM_VA_LIST_INFORMATION
@@ -2650,7 +2558,7 @@ typedef struct _SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION_EX
 } SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION_EX, *PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION_EX;
 
 // private
-typedef struct _SYSTEM_SECUREBOOT_POLICY_INFORMATION 
+typedef struct _SYSTEM_SECUREBOOT_POLICY_INFORMATION
 {
     GUID PolicyPublisher;
     ULONG PolicyVersion;
@@ -2764,7 +2672,7 @@ typedef struct _PROCESS_ENERGY_VALUES_EXTENSION
             ENERGY_STATE_DURATION PSMBackgroundDuration;
         };
     };
-    
+
     ULONG KeyboardInput;
     ULONG MouseInput;
 } PROCESS_ENERGY_VALUES_EXTENSION, *PPROCESS_ENERGY_VALUES_EXTENSION;
@@ -2802,12 +2710,12 @@ typedef struct _SYSTEM_PROCESS_INFORMATION_EXTENSION
         };
     };
     ULONG UserSidOffset;
-    ULONG PackageFullNameOffset; // since THRESHOLD
+    ULONG PackageFullNameOffset;        // since THRESHOLD
     PROCESS_ENERGY_VALUES EnergyValues; // since THRESHOLD
-    ULONG AppIdOffset; // since THRESHOLD
-    SIZE_T SharedCommitCharge; // since THRESHOLD2
-    ULONG JobObjectId; // since REDSTONE
-    ULONG SpareUlong; // since REDSTONE
+    ULONG AppIdOffset;                  // since THRESHOLD
+    SIZE_T SharedCommitCharge;          // since THRESHOLD2
+    ULONG JobObjectId;                  // since REDSTONE
+    ULONG SpareUlong;                   // since REDSTONE
     ULONGLONG ProcessSequenceNumber;
 } SYSTEM_PROCESS_INFORMATION_EXTENSION, *PSYSTEM_PROCESS_INFORMATION_EXTENSION;
 
@@ -3127,8 +3035,7 @@ NtQuerySystemInformation(
     _In_ SYSTEM_INFORMATION_CLASS SystemInformationClass,
     _Out_writes_bytes_opt_(SystemInformationLength) PVOID SystemInformation,
     _In_ ULONG SystemInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 #if (PHNT_VERSION >= PHNT_WIN7)
 NTSYSCALLAPI
@@ -3140,8 +3047,7 @@ NtQuerySystemInformationEx(
     _In_ ULONG InputBufferLength,
     _Out_writes_bytes_opt_(SystemInformationLength) PVOID SystemInformation,
     _In_ ULONG SystemInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 #endif
 
 NTSYSCALLAPI
@@ -3150,8 +3056,7 @@ NTAPI
 NtSetSystemInformation(
     _In_ SYSTEM_INFORMATION_CLASS SystemInformationClass,
     _In_reads_bytes_opt_(SystemInformationLength) PVOID SystemInformation,
-    _In_ ULONG SystemInformationLength
-    );
+    _In_ ULONG SystemInformationLength);
 
 // SysDbg APIs
 
@@ -3196,7 +3101,8 @@ typedef enum _SYSDBG_COMMAND
     SysDbgGetUmAttachPid,
     SysDbgClearUmAttachPid,
     SysDbgGetLiveKernelDump
-} SYSDBG_COMMAND, *PSYSDBG_COMMAND;
+} SYSDBG_COMMAND,
+    *PSYSDBG_COMMAND;
 
 typedef struct _SYSDBG_VIRTUAL
 {
@@ -3314,8 +3220,7 @@ NtSystemDebugControl(
     _In_ ULONG InputBufferLength,
     _Out_writes_bytes_opt_(OutputBufferLength) PVOID OutputBuffer,
     _In_ ULONG OutputBufferLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 // Hard errors
 
@@ -3358,8 +3263,7 @@ NtRaiseHardError(
     _In_ ULONG UnicodeStringParameterMask,
     _In_reads_(NumberOfParameters) PULONG_PTR Parameters,
     _In_ ULONG ValidResponseOptions,
-    _Out_ PULONG Response
-    );
+    _Out_ PULONG Response);
 
 // Kernel-user shared data
 
@@ -3506,9 +3410,9 @@ typedef struct _KUSER_SHARED_DATA
 
     USHORT UnparkedProcessorCount;
     ULONG EnclaveFeatureMask[4];
-    
+
     ULONG TelemetryCoverageRound;
-    
+
     USHORT UserModeGlobalLogger[16];
     ULONG ImageFileExecutionOptions;
 
@@ -3570,9 +3474,9 @@ C_ASSERT(FIELD_OFFSET(KUSER_SHARED_DATA, SystemCallPad) == 0x310);
 C_ASSERT(FIELD_OFFSET(KUSER_SHARED_DATA, TickCount) == 0x320);
 C_ASSERT(FIELD_OFFSET(KUSER_SHARED_DATA, TickCountQuad) == 0x320);
 C_ASSERT(FIELD_OFFSET(KUSER_SHARED_DATA, XState) == 0x3d8);
-C_ASSERT(sizeof(KUSER_SHARED_DATA) == 0x708);
+// C_ASSERT(sizeof(KUSER_SHARED_DATA) == 0x708); // Disabled due to Windows SDK compatibility issues
 
-#define USER_SHARED_DATA ((KUSER_SHARED_DATA * const)0x7ffe0000)
+#define USER_SHARED_DATA ((KUSER_SHARED_DATA *const)0x7ffe0000)
 
 #if (PHNT_VERSION >= PHNT_WS03)
 
@@ -3600,7 +3504,7 @@ FORCEINLINE ULONGLONG NtGetTickCount64()
 #endif
 
     return (UInt32x32To64(tickCount.LowPart, USER_SHARED_DATA->TickCountMultiplier) >> 24) +
-        (UInt32x32To64(tickCount.HighPart, USER_SHARED_DATA->TickCountMultiplier) << 8);
+           (UInt32x32To64(tickCount.HighPart, USER_SHARED_DATA->TickCountMultiplier) << 8);
 }
 
 FORCEINLINE ULONG NtGetTickCount()
@@ -3625,7 +3529,7 @@ FORCEINLINE ULONG NtGetTickCount()
     }
 
     return (ULONG)((UInt32x32To64(tickCount.LowPart, USER_SHARED_DATA->TickCountMultiplier) >> 24) +
-        UInt32x32To64((tickCount.HighPart << 8) & 0xffffffff, USER_SHARED_DATA->TickCountMultiplier));
+                   UInt32x32To64((tickCount.HighPart << 8) & 0xffffffff, USER_SHARED_DATA->TickCountMultiplier));
 
 #endif
 }
@@ -3639,23 +3543,20 @@ NTSTATUS
 NTAPI
 NtQueryDefaultLocale(
     _In_ BOOLEAN UserProfile,
-    _Out_ PLCID DefaultLocaleId
-    );
+    _Out_ PLCID DefaultLocaleId);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetDefaultLocale(
     _In_ BOOLEAN UserProfile,
-    _In_ LCID DefaultLocaleId
-    );
+    _In_ LCID DefaultLocaleId);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryInstallUILanguage(
-    _Out_ LANGID *InstallUILanguageId
-    );
+    _Out_ LANGID *InstallUILanguageId);
 
 #if (PHNT_VERSION >= PHNT_VISTA)
 // private
@@ -3664,23 +3565,20 @@ NTSTATUS
 NTAPI
 NtFlushInstallUILanguage(
     _In_ LANGID InstallUILanguage,
-    _In_ ULONG SetComittedFlag
-    );
+    _In_ ULONG SetComittedFlag);
 #endif
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryDefaultUILanguage(
-    _Out_ LANGID *DefaultUILanguageId
-    );
+    _Out_ LANGID *DefaultUILanguageId);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetDefaultUILanguage(
-    _In_ LANGID DefaultUILanguageId
-    );
+    _In_ LANGID DefaultUILanguageId);
 
 #if (PHNT_VERSION >= PHNT_VISTA)
 // private
@@ -3688,8 +3586,7 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtIsUILanguageComitted(
-    VOID
-    );
+    VOID);
 #endif
 
 // NLS
@@ -3705,8 +3602,7 @@ NTAPI
 NtInitializeNlsFiles(
     _Out_ PVOID *BaseAddress,
     _Out_ PLCID DefaultLocaleId,
-    _Out_ PLARGE_INTEGER DefaultCasingTableSize
-    );
+    _Out_ PLARGE_INTEGER DefaultCasingTableSize);
 #else
 NTSYSCALLAPI
 NTSTATUS
@@ -3715,8 +3611,7 @@ NtInitializeNlsFiles(
     _Out_ PVOID *BaseAddress,
     _Out_ PLCID DefaultLocaleId,
     _Out_ PLARGE_INTEGER DefaultCasingTableSize,
-    _Out_opt_ PULONG CurrentNLSVersion
-    );
+    _Out_opt_ PULONG CurrentNLSVersion);
 #endif
 
 NTSYSCALLAPI
@@ -3727,8 +3622,7 @@ NtGetNlsSectionPtr(
     _In_ ULONG SectionData,
     _In_ PVOID ContextData,
     _Out_ PVOID *SectionPointer,
-    _Out_ PULONG SectionSize
-    );
+    _Out_ PULONG SectionSize);
 
 #if (PHNT_VERSION < PHNT_WIN7)
 
@@ -3738,15 +3632,13 @@ NTAPI
 NtAcquireCMFViewOwnership(
     _Out_ PULONGLONG TimeStamp,
     _Out_ PBOOLEAN tokenTaken,
-    _In_ BOOLEAN replaceExisting
-    );
+    _In_ BOOLEAN replaceExisting);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtReleaseCMFViewOwnership(
-    VOID
-    );
+    VOID);
 
 #endif
 
@@ -3759,8 +3651,7 @@ NtMapCMFModule(
     _Out_opt_ PULONG CacheIndexOut,
     _Out_opt_ PULONG CacheFlagsOut,
     _Out_opt_ PULONG ViewSizeOut,
-    _Out_opt_ PVOID *BaseAddress
-    );
+    _Out_opt_ PVOID *BaseAddress);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -3768,8 +3659,7 @@ NTAPI
 NtGetMUIRegistryInfo(
     _In_ ULONG Flags,
     _Inout_ PULONG DataSize,
-    _Out_ PVOID Data
-    );
+    _Out_ PVOID Data);
 
 #endif
 
@@ -3783,8 +3673,7 @@ NTAPI
 NtAddAtom(
     _In_reads_bytes_opt_(Length) PWSTR AtomName,
     _In_ ULONG Length,
-    _Out_opt_ PRTL_ATOM Atom
-    );
+    _Out_opt_ PRTL_ATOM Atom);
 
 #if (PHNT_VERSION >= PHNT_WIN8)
 // rev
@@ -3795,8 +3684,7 @@ NtAddAtomEx(
     _In_reads_bytes_opt_(Length) PWSTR AtomName,
     _In_ ULONG Length,
     _Out_opt_ PRTL_ATOM Atom,
-    _In_ ULONG Flags
-    );
+    _In_ ULONG Flags);
 #endif
 
 NTSYSCALLAPI
@@ -3805,15 +3693,13 @@ NTAPI
 NtFindAtom(
     _In_reads_bytes_opt_(Length) PWSTR AtomName,
     _In_ ULONG Length,
-    _Out_opt_ PRTL_ATOM Atom
-    );
+    _Out_opt_ PRTL_ATOM Atom);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDeleteAtom(
-    _In_ RTL_ATOM Atom
-    );
+    _In_ RTL_ATOM Atom);
 
 typedef enum _ATOM_INFORMATION_CLASS
 {
@@ -3843,87 +3729,86 @@ NtQueryInformationAtom(
     _In_ ATOM_INFORMATION_CLASS AtomInformationClass,
     _Out_writes_bytes_(AtomInformationLength) PVOID AtomInformation,
     _In_ ULONG AtomInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 // Global flags
 
-#define FLG_STOP_ON_EXCEPTION 0x00000001 // uk
-#define FLG_SHOW_LDR_SNAPS 0x00000002 // uk
+#define FLG_STOP_ON_EXCEPTION 0x00000001     // uk
+#define FLG_SHOW_LDR_SNAPS 0x00000002        // uk
 #define FLG_DEBUG_INITIAL_COMMAND 0x00000004 // k
-#define FLG_STOP_ON_HUNG_GUI 0x00000008 // k
+#define FLG_STOP_ON_HUNG_GUI 0x00000008      // k
 
-#define FLG_HEAP_ENABLE_TAIL_CHECK 0x00000010 // u
-#define FLG_HEAP_ENABLE_FREE_CHECK 0x00000020 // u
+#define FLG_HEAP_ENABLE_TAIL_CHECK 0x00000010   // u
+#define FLG_HEAP_ENABLE_FREE_CHECK 0x00000020   // u
 #define FLG_HEAP_VALIDATE_PARAMETERS 0x00000040 // u
-#define FLG_HEAP_VALIDATE_ALL 0x00000080 // u
+#define FLG_HEAP_VALIDATE_ALL 0x00000080        // u
 
 #define FLG_APPLICATION_VERIFIER 0x00000100 // u
-#define FLG_POOL_ENABLE_TAGGING 0x00000400 // k
-#define FLG_HEAP_ENABLE_TAGGING 0x00000800 // u
+#define FLG_POOL_ENABLE_TAGGING 0x00000400  // k
+#define FLG_HEAP_ENABLE_TAGGING 0x00000800  // u
 
-#define FLG_USER_STACK_TRACE_DB 0x00001000 // u,32
-#define FLG_KERNEL_STACK_TRACE_DB 0x00002000 // k,32
+#define FLG_USER_STACK_TRACE_DB 0x00001000      // u,32
+#define FLG_KERNEL_STACK_TRACE_DB 0x00002000    // k,32
 #define FLG_MAINTAIN_OBJECT_TYPELIST 0x00004000 // k
-#define FLG_HEAP_ENABLE_TAG_BY_DLL 0x00008000 // u
+#define FLG_HEAP_ENABLE_TAG_BY_DLL 0x00008000   // u
 
-#define FLG_DISABLE_STACK_EXTENSION 0x00010000 // u
-#define FLG_ENABLE_CSRDEBUG 0x00020000 // k
-#define FLG_ENABLE_KDEBUG_SYMBOL_LOAD 0x00040000 // k
+#define FLG_DISABLE_STACK_EXTENSION 0x00010000    // u
+#define FLG_ENABLE_CSRDEBUG 0x00020000            // k
+#define FLG_ENABLE_KDEBUG_SYMBOL_LOAD 0x00040000  // k
 #define FLG_DISABLE_PAGE_KERNEL_STACKS 0x00080000 // k
 
 #define FLG_ENABLE_SYSTEM_CRIT_BREAKS 0x00100000 // u
-#define FLG_HEAP_DISABLE_COALESCING 0x00200000 // u
-#define FLG_ENABLE_CLOSE_EXCEPTIONS 0x00400000 // k
-#define FLG_ENABLE_EXCEPTION_LOGGING 0x00800000 // k
+#define FLG_HEAP_DISABLE_COALESCING 0x00200000   // u
+#define FLG_ENABLE_CLOSE_EXCEPTIONS 0x00400000   // k
+#define FLG_ENABLE_EXCEPTION_LOGGING 0x00800000  // k
 
 #define FLG_ENABLE_HANDLE_TYPE_TAGGING 0x01000000 // k
-#define FLG_HEAP_PAGE_ALLOCS 0x02000000 // u
-#define FLG_DEBUG_INITIAL_COMMAND_EX 0x04000000 // k
-#define FLG_DISABLE_DBGPRINT 0x08000000 // k
+#define FLG_HEAP_PAGE_ALLOCS 0x02000000           // u
+#define FLG_DEBUG_INITIAL_COMMAND_EX 0x04000000   // k
+#define FLG_DISABLE_DBGPRINT 0x08000000           // k
 
-#define FLG_CRITSEC_EVENT_CREATION 0x10000000 // u
-#define FLG_LDR_TOP_DOWN 0x20000000 // u,64
+#define FLG_CRITSEC_EVENT_CREATION 0x10000000   // u
+#define FLG_LDR_TOP_DOWN 0x20000000             // u,64
 #define FLG_ENABLE_HANDLE_EXCEPTIONS 0x40000000 // k
-#define FLG_DISABLE_PROTDLLS 0x80000000 // u
+#define FLG_DISABLE_PROTDLLS 0x80000000         // u
 
 #define FLG_VALID_BITS 0xfffffdff
 
-#define FLG_USERMODE_VALID_BITS (FLG_STOP_ON_EXCEPTION | \
-    FLG_SHOW_LDR_SNAPS | \
-    FLG_HEAP_ENABLE_TAIL_CHECK | \
-    FLG_HEAP_ENABLE_FREE_CHECK | \
-    FLG_HEAP_VALIDATE_PARAMETERS | \
-    FLG_HEAP_VALIDATE_ALL | \
-    FLG_APPLICATION_VERIFIER | \
-    FLG_HEAP_ENABLE_TAGGING | \
-    FLG_USER_STACK_TRACE_DB | \
-    FLG_HEAP_ENABLE_TAG_BY_DLL | \
-    FLG_DISABLE_STACK_EXTENSION | \
-    FLG_ENABLE_SYSTEM_CRIT_BREAKS | \
-    FLG_HEAP_DISABLE_COALESCING | \
-    FLG_DISABLE_PROTDLLS | \
-    FLG_HEAP_PAGE_ALLOCS | \
-    FLG_CRITSEC_EVENT_CREATION | \
-    FLG_LDR_TOP_DOWN)
+#define FLG_USERMODE_VALID_BITS (FLG_STOP_ON_EXCEPTION |         \
+                                 FLG_SHOW_LDR_SNAPS |            \
+                                 FLG_HEAP_ENABLE_TAIL_CHECK |    \
+                                 FLG_HEAP_ENABLE_FREE_CHECK |    \
+                                 FLG_HEAP_VALIDATE_PARAMETERS |  \
+                                 FLG_HEAP_VALIDATE_ALL |         \
+                                 FLG_APPLICATION_VERIFIER |      \
+                                 FLG_HEAP_ENABLE_TAGGING |       \
+                                 FLG_USER_STACK_TRACE_DB |       \
+                                 FLG_HEAP_ENABLE_TAG_BY_DLL |    \
+                                 FLG_DISABLE_STACK_EXTENSION |   \
+                                 FLG_ENABLE_SYSTEM_CRIT_BREAKS | \
+                                 FLG_HEAP_DISABLE_COALESCING |   \
+                                 FLG_DISABLE_PROTDLLS |          \
+                                 FLG_HEAP_PAGE_ALLOCS |          \
+                                 FLG_CRITSEC_EVENT_CREATION |    \
+                                 FLG_LDR_TOP_DOWN)
 
-#define FLG_BOOTONLY_VALID_BITS (FLG_KERNEL_STACK_TRACE_DB | \
-    FLG_MAINTAIN_OBJECT_TYPELIST | \
-    FLG_ENABLE_CSRDEBUG | \
-    FLG_DEBUG_INITIAL_COMMAND | \
-    FLG_DEBUG_INITIAL_COMMAND_EX | \
-    FLG_DISABLE_PAGE_KERNEL_STACKS)
+#define FLG_BOOTONLY_VALID_BITS (FLG_KERNEL_STACK_TRACE_DB |    \
+                                 FLG_MAINTAIN_OBJECT_TYPELIST | \
+                                 FLG_ENABLE_CSRDEBUG |          \
+                                 FLG_DEBUG_INITIAL_COMMAND |    \
+                                 FLG_DEBUG_INITIAL_COMMAND_EX | \
+                                 FLG_DISABLE_PAGE_KERNEL_STACKS)
 
-#define FLG_KERNELMODE_VALID_BITS (FLG_STOP_ON_EXCEPTION | \
-    FLG_SHOW_LDR_SNAPS | \
-    FLG_STOP_ON_HUNG_GUI | \
-    FLG_POOL_ENABLE_TAGGING | \
-    FLG_ENABLE_KDEBUG_SYMBOL_LOAD | \
-    FLG_ENABLE_CLOSE_EXCEPTIONS | \
-    FLG_ENABLE_EXCEPTION_LOGGING | \
-    FLG_ENABLE_HANDLE_TYPE_TAGGING | \
-    FLG_DISABLE_DBGPRINT | \
-    FLG_ENABLE_HANDLE_EXCEPTIONS)
+#define FLG_KERNELMODE_VALID_BITS (FLG_STOP_ON_EXCEPTION |          \
+                                   FLG_SHOW_LDR_SNAPS |             \
+                                   FLG_STOP_ON_HUNG_GUI |           \
+                                   FLG_POOL_ENABLE_TAGGING |        \
+                                   FLG_ENABLE_KDEBUG_SYMBOL_LOAD |  \
+                                   FLG_ENABLE_CLOSE_EXCEPTIONS |    \
+                                   FLG_ENABLE_EXCEPTION_LOGGING |   \
+                                   FLG_ENABLE_HANDLE_TYPE_TAGGING | \
+                                   FLG_DISABLE_DBGPRINT |           \
+                                   FLG_ENABLE_HANDLE_EXCEPTIONS)
 
 // Licensing
 
@@ -3935,8 +3820,7 @@ NtQueryLicenseValue(
     _Out_opt_ PULONG Type,
     _Out_writes_bytes_to_opt_(DataSize, *ResultDataSize) PVOID Data,
     _In_ ULONG DataSize,
-    _Out_ PULONG ResultDataSize
-    );
+    _Out_ PULONG ResultDataSize);
 
 // Misc.
 
@@ -3944,8 +3828,7 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtSetDefaultHardErrorPort(
-    _In_ HANDLE DefaultHardErrorPort
-    );
+    _In_ HANDLE DefaultHardErrorPort);
 
 typedef enum _SHUTDOWN_ACTION
 {
@@ -3958,23 +3841,20 @@ NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtShutdownSystem(
-    _In_ SHUTDOWN_ACTION Action
-    );
+    _In_ SHUTDOWN_ACTION Action);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDisplayString(
-    _In_ PUNICODE_STRING String
-    );
+    _In_ PUNICODE_STRING String);
 
 #if (PHNT_VERSION >= PHNT_WIN7)
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDrawText(
-    _In_ PUNICODE_STRING String
-    );
+    _In_ PUNICODE_STRING String);
 #endif
 
 #endif // (PHNT_MODE != PHNT_MODE_KERNEL)

@@ -158,11 +158,10 @@ typedef struct _IO_STATUS_BLOCK
     ULONG_PTR Information;
 } IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
 
-typedef VOID (NTAPI *PIO_APC_ROUTINE)(
+typedef VOID(NTAPI *PIO_APC_ROUTINE)(
     _In_ PVOID ApcContext,
     _In_ PIO_STATUS_BLOCK IoStatusBlock,
-    _In_ ULONG Reserved
-    );
+    _In_ ULONG Reserved);
 
 // private
 typedef struct _FILE_IO_COMPLETION_INFORMATION
@@ -174,77 +173,78 @@ typedef struct _FILE_IO_COMPLETION_INFORMATION
 
 typedef enum _FILE_INFORMATION_CLASS
 {
-    FileDirectoryInformation = 1, // FILE_DIRECTORY_INFORMATION
-    FileFullDirectoryInformation, // FILE_FULL_DIR_INFORMATION
-    FileBothDirectoryInformation, // FILE_BOTH_DIR_INFORMATION
-    FileBasicInformation, // FILE_BASIC_INFORMATION
-    FileStandardInformation, // FILE_STANDARD_INFORMATION
-    FileInternalInformation, // FILE_INTERNAL_INFORMATION
-    FileEaInformation, // FILE_EA_INFORMATION
-    FileAccessInformation, // FILE_ACCESS_INFORMATION
-    FileNameInformation, // FILE_NAME_INFORMATION
-    FileRenameInformation, // FILE_RENAME_INFORMATION // 10
-    FileLinkInformation, // FILE_LINK_INFORMATION
-    FileNamesInformation, // FILE_NAMES_INFORMATION
-    FileDispositionInformation, // FILE_DISPOSITION_INFORMATION
-    FilePositionInformation, // FILE_POSITION_INFORMATION
-    FileFullEaInformation, // FILE_FULL_EA_INFORMATION
-    FileModeInformation, // FILE_MODE_INFORMATION
-    FileAlignmentInformation, // FILE_ALIGNMENT_INFORMATION
-    FileAllInformation, // FILE_ALL_INFORMATION
-    FileAllocationInformation, // FILE_ALLOCATION_INFORMATION
-    FileEndOfFileInformation, // FILE_END_OF_FILE_INFORMATION // 20
-    FileAlternateNameInformation, // FILE_NAME_INFORMATION
-    FileStreamInformation, // FILE_STREAM_INFORMATION
-    FilePipeInformation, // FILE_PIPE_INFORMATION
-    FilePipeLocalInformation, // FILE_PIPE_LOCAL_INFORMATION
-    FilePipeRemoteInformation, // FILE_PIPE_REMOTE_INFORMATION
-    FileMailslotQueryInformation, // FILE_MAILSLOT_QUERY_INFORMATION
-    FileMailslotSetInformation, // FILE_MAILSLOT_SET_INFORMATION
-    FileCompressionInformation, // FILE_COMPRESSION_INFORMATION
-    FileObjectIdInformation, // FILE_OBJECTID_INFORMATION
-    FileCompletionInformation, // FILE_COMPLETION_INFORMATION // 30
-    FileMoveClusterInformation, // FILE_MOVE_CLUSTER_INFORMATION
-    FileQuotaInformation, // FILE_QUOTA_INFORMATION
-    FileReparsePointInformation, // FILE_REPARSE_POINT_INFORMATION
-    FileNetworkOpenInformation, // FILE_NETWORK_OPEN_INFORMATION
-    FileAttributeTagInformation, // FILE_ATTRIBUTE_TAG_INFORMATION
-    FileTrackingInformation, // FILE_TRACKING_INFORMATION
-    FileIdBothDirectoryInformation, // FILE_ID_BOTH_DIR_INFORMATION
-    FileIdFullDirectoryInformation, // FILE_ID_FULL_DIR_INFORMATION
-    FileValidDataLengthInformation, // FILE_VALID_DATA_LENGTH_INFORMATION
-    FileShortNameInformation, // FILE_NAME_INFORMATION // 40
+    FileDirectoryInformation = 1,            // FILE_DIRECTORY_INFORMATION
+    FileFullDirectoryInformation,            // FILE_FULL_DIR_INFORMATION
+    FileBothDirectoryInformation,            // FILE_BOTH_DIR_INFORMATION
+    FileBasicInformation,                    // FILE_BASIC_INFORMATION
+    FileStandardInformation,                 // FILE_STANDARD_INFORMATION
+    FileInternalInformation,                 // FILE_INTERNAL_INFORMATION
+    FileEaInformation,                       // FILE_EA_INFORMATION
+    FileAccessInformation,                   // FILE_ACCESS_INFORMATION
+    FileNameInformation,                     // FILE_NAME_INFORMATION
+    FileRenameInformation,                   // FILE_RENAME_INFORMATION // 10
+    FileLinkInformation,                     // FILE_LINK_INFORMATION
+    FileNamesInformation,                    // FILE_NAMES_INFORMATION
+    FileDispositionInformation,              // FILE_DISPOSITION_INFORMATION
+    FilePositionInformation,                 // FILE_POSITION_INFORMATION
+    FileFullEaInformation,                   // FILE_FULL_EA_INFORMATION
+    FileModeInformation,                     // FILE_MODE_INFORMATION
+    FileAlignmentInformation,                // FILE_ALIGNMENT_INFORMATION
+    FileAllInformation,                      // FILE_ALL_INFORMATION
+    FileAllocationInformation,               // FILE_ALLOCATION_INFORMATION
+    FileEndOfFileInformation,                // FILE_END_OF_FILE_INFORMATION // 20
+    FileAlternateNameInformation,            // FILE_NAME_INFORMATION
+    FileStreamInformation,                   // FILE_STREAM_INFORMATION
+    FilePipeInformation,                     // FILE_PIPE_INFORMATION
+    FilePipeLocalInformation,                // FILE_PIPE_LOCAL_INFORMATION
+    FilePipeRemoteInformation,               // FILE_PIPE_REMOTE_INFORMATION
+    FileMailslotQueryInformation,            // FILE_MAILSLOT_QUERY_INFORMATION
+    FileMailslotSetInformation,              // FILE_MAILSLOT_SET_INFORMATION
+    FileCompressionInformation,              // FILE_COMPRESSION_INFORMATION
+    FileObjectIdInformation,                 // FILE_OBJECTID_INFORMATION
+    FileCompletionInformation,               // FILE_COMPLETION_INFORMATION // 30
+    FileMoveClusterInformation,              // FILE_MOVE_CLUSTER_INFORMATION
+    FileQuotaInformation,                    // FILE_QUOTA_INFORMATION
+    FileReparsePointInformation,             // FILE_REPARSE_POINT_INFORMATION
+    FileNetworkOpenInformation,              // FILE_NETWORK_OPEN_INFORMATION
+    FileAttributeTagInformation,             // FILE_ATTRIBUTE_TAG_INFORMATION
+    FileTrackingInformation,                 // FILE_TRACKING_INFORMATION
+    FileIdBothDirectoryInformation,          // FILE_ID_BOTH_DIR_INFORMATION
+    FileIdFullDirectoryInformation,          // FILE_ID_FULL_DIR_INFORMATION
+    FileValidDataLengthInformation,          // FILE_VALID_DATA_LENGTH_INFORMATION
+    FileShortNameInformation,                // FILE_NAME_INFORMATION // 40
     FileIoCompletionNotificationInformation, // FILE_IO_COMPLETION_NOTIFICATION_INFORMATION // since VISTA
-    FileIoStatusBlockRangeInformation, // FILE_IOSTATUSBLOCK_RANGE_INFORMATION
-    FileIoPriorityHintInformation, // FILE_IO_PRIORITY_HINT_INFORMATION
-    FileSfioReserveInformation, // FILE_SFIO_RESERVE_INFORMATION
-    FileSfioVolumeInformation, // FILE_SFIO_VOLUME_INFORMATION
-    FileHardLinkInformation, // FILE_LINKS_INFORMATION
-    FileProcessIdsUsingFileInformation, // FILE_PROCESS_IDS_USING_FILE_INFORMATION
-    FileNormalizedNameInformation, // FILE_NAME_INFORMATION
-    FileNetworkPhysicalNameInformation, // FILE_NETWORK_PHYSICAL_NAME_INFORMATION
-    FileIdGlobalTxDirectoryInformation, // FILE_ID_GLOBAL_TX_DIR_INFORMATION // since WIN7 // 50
-    FileIsRemoteDeviceInformation, // FILE_IS_REMOTE_DEVICE_INFORMATION
+    FileIoStatusBlockRangeInformation,       // FILE_IOSTATUSBLOCK_RANGE_INFORMATION
+    FileIoPriorityHintInformation,           // FILE_IO_PRIORITY_HINT_INFORMATION
+    FileSfioReserveInformation,              // FILE_SFIO_RESERVE_INFORMATION
+    FileSfioVolumeInformation,               // FILE_SFIO_VOLUME_INFORMATION
+    FileHardLinkInformation,                 // FILE_LINKS_INFORMATION
+    FileProcessIdsUsingFileInformation,      // FILE_PROCESS_IDS_USING_FILE_INFORMATION
+    FileNormalizedNameInformation,           // FILE_NAME_INFORMATION
+    FileNetworkPhysicalNameInformation,      // FILE_NETWORK_PHYSICAL_NAME_INFORMATION
+    FileIdGlobalTxDirectoryInformation,      // FILE_ID_GLOBAL_TX_DIR_INFORMATION // since WIN7 // 50
+    FileIsRemoteDeviceInformation,           // FILE_IS_REMOTE_DEVICE_INFORMATION
     FileUnusedInformation,
-    FileNumaNodeInformation, // FILE_NUMA_NODE_INFORMATION
-    FileStandardLinkInformation, // FILE_STANDARD_LINK_INFORMATION
-    FileRemoteProtocolInformation, // FILE_REMOTE_PROTOCOL_INFORMATION
+    FileNumaNodeInformation,                // FILE_NUMA_NODE_INFORMATION
+    FileStandardLinkInformation,            // FILE_STANDARD_LINK_INFORMATION
+    FileRemoteProtocolInformation,          // FILE_REMOTE_PROTOCOL_INFORMATION
     FileRenameInformationBypassAccessCheck, // (kernel-mode only); FILE_RENAME_INFORMATION // since WIN8
-    FileLinkInformationBypassAccessCheck, // (kernel-mode only); FILE_LINK_INFORMATION
-    FileVolumeNameInformation, // FILE_VOLUME_NAME_INFORMATION
-    FileIdInformation, // FILE_ID_INFORMATION
-    FileIdExtdDirectoryInformation, // FILE_ID_EXTD_DIR_INFORMATION
-    FileReplaceCompletionInformation, // FILE_COMPLETION_INFORMATION // since WINBLUE
-    FileHardLinkFullIdInformation, // FILE_LINK_ENTRY_FULL_ID_INFORMATION
-    FileIdExtdBothDirectoryInformation, // FILE_ID_EXTD_BOTH_DIR_INFORMATION // since THRESHOLD
-    FileDispositionInformationEx, // FILE_DISPOSITION_INFO_EX // since REDSTONE
+    FileLinkInformationBypassAccessCheck,   // (kernel-mode only); FILE_LINK_INFORMATION
+    FileVolumeNameInformation,              // FILE_VOLUME_NAME_INFORMATION
+    FileIdInformation,                      // FILE_ID_INFORMATION
+    FileIdExtdDirectoryInformation,         // FILE_ID_EXTD_DIR_INFORMATION
+    FileReplaceCompletionInformation,       // FILE_COMPLETION_INFORMATION // since WINBLUE
+    FileHardLinkFullIdInformation,          // FILE_LINK_ENTRY_FULL_ID_INFORMATION
+    FileIdExtdBothDirectoryInformation,     // FILE_ID_EXTD_BOTH_DIR_INFORMATION // since THRESHOLD
+    FileDispositionInformationEx,           // FILE_DISPOSITION_INFO_EX // since REDSTONE
     FileRenameInformationEx,
     FileRenameInformationExBypassAccessCheck,
     FileDesiredStorageClassInformation, // FILE_DESIRED_STORAGE_CLASS_INFORMATION // since REDSTONE2
-    FileStatInformation, // FILE_STAT_INFORMATION
-    FileMemoryPartitionInformation, // FILE_MEMORY_PARTITION_INFORMATION // since REDSTONE3
+    FileStatInformation,                // FILE_STAT_INFORMATION
+    FileMemoryPartitionInformation,     // FILE_MEMORY_PARTITION_INFORMATION // since REDSTONE3
     FileMaximumInformation
-} FILE_INFORMATION_CLASS, *PFILE_INFORMATION_CLASS;
+} FILE_INFORMATION_CLASS,
+    *PFILE_INFORMATION_CLASS;
 
 // NtQueryInformationFile/NtSetInformationFile types
 
@@ -421,28 +421,28 @@ typedef struct _FILE_COMPLETION_INFORMATION
 
 typedef struct _FILE_PIPE_INFORMATION
 {
-     ULONG ReadMode;
-     ULONG CompletionMode;
+    ULONG ReadMode;
+    ULONG CompletionMode;
 } FILE_PIPE_INFORMATION, *PFILE_PIPE_INFORMATION;
 
 typedef struct _FILE_PIPE_LOCAL_INFORMATION
 {
-     ULONG NamedPipeType;
-     ULONG NamedPipeConfiguration;
-     ULONG MaximumInstances;
-     ULONG CurrentInstances;
-     ULONG InboundQuota;
-     ULONG ReadDataAvailable;
-     ULONG OutboundQuota;
-     ULONG WriteQuotaAvailable;
-     ULONG NamedPipeState;
-     ULONG NamedPipeEnd;
+    ULONG NamedPipeType;
+    ULONG NamedPipeConfiguration;
+    ULONG MaximumInstances;
+    ULONG CurrentInstances;
+    ULONG InboundQuota;
+    ULONG ReadDataAvailable;
+    ULONG OutboundQuota;
+    ULONG WriteQuotaAvailable;
+    ULONG NamedPipeState;
+    ULONG NamedPipeEnd;
 } FILE_PIPE_LOCAL_INFORMATION, *PFILE_PIPE_LOCAL_INFORMATION;
 
 typedef struct _FILE_PIPE_REMOTE_INFORMATION
 {
-     LARGE_INTEGER CollectDataTime;
-     ULONG MaximumCollectionCount;
+    LARGE_INTEGER CollectDataTime;
+    ULONG MaximumCollectionCount;
 } FILE_PIPE_REMOTE_INFORMATION, *PFILE_PIPE_REMOTE_INFORMATION;
 
 typedef struct _FILE_MAILSLOT_QUERY_INFORMATION
@@ -514,10 +514,10 @@ typedef struct _FILE_SFIO_VOLUME_INFORMATION
 typedef enum _IO_PRIORITY_HINT
 {
     IoPriorityVeryLow = 0, // Defragging, content indexing and other background I/Os.
-    IoPriorityLow, // Prefetching for applications.
-    IoPriorityNormal, // Normal I/Os.
-    IoPriorityHigh, // Used by filesystems for checkpoint I/O.
-    IoPriorityCritical, // Used by memory manager. Not available for applications.
+    IoPriorityLow,         // Prefetching for applications.
+    IoPriorityNormal,      // Normal I/Os.
+    IoPriorityHigh,        // Used by filesystems for checkpoint I/O.
+    IoPriorityCritical,    // Used by memory manager. Not available for applications.
     MaxIoPriorityTypes
 } IO_PRIORITY_HINT;
 
@@ -681,6 +681,10 @@ typedef struct _FILE_ID_EXTD_BOTH_DIR_INFORMATION
 } FILE_ID_EXTD_BOTH_DIR_INFORMATION, *PFILE_ID_EXTD_BOTH_DIR_INFORMATION;
 
 // private
+// Structure already defined in newer Windows SDK - commenting out to prevent redefinition
+/*
+#ifndef _FILE_STAT_INFORMATION_DEFINED
+#define _FILE_STAT_INFORMATION_DEFINED
 typedef struct _FILE_STAT_INFORMATION
 {
     LARGE_INTEGER FileId;
@@ -695,6 +699,8 @@ typedef struct _FILE_STAT_INFORMATION
     ULONG NumberOfLinks;
     ULONG EffectiveAccess;
 } FILE_STAT_INFORMATION, *PFILE_STAT_INFORMATION;
+#endif
+*/
 
 // private
 typedef struct _FILE_MEMORY_PARTITION_INFORMATION
@@ -884,21 +890,22 @@ typedef struct _FILE_QUOTA_INFORMATION
 
 typedef enum _FSINFOCLASS
 {
-    FileFsVolumeInformation = 1, // FILE_FS_VOLUME_INFORMATION
-    FileFsLabelInformation, // FILE_FS_LABEL_INFORMATION
-    FileFsSizeInformation, // FILE_FS_SIZE_INFORMATION
-    FileFsDeviceInformation, // FILE_FS_DEVICE_INFORMATION
-    FileFsAttributeInformation, // FILE_FS_ATTRIBUTE_INFORMATION
-    FileFsControlInformation, // FILE_FS_CONTROL_INFORMATION
-    FileFsFullSizeInformation, // FILE_FS_FULL_SIZE_INFORMATION
-    FileFsObjectIdInformation, // FILE_FS_OBJECTID_INFORMATION
-    FileFsDriverPathInformation, // FILE_FS_DRIVER_PATH_INFORMATION
-    FileFsVolumeFlagsInformation, // FILE_FS_VOLUME_FLAGS_INFORMATION
-    FileFsSectorSizeInformation, // FILE_FS_SECTOR_SIZE_INFORMATION // since WIN8
-    FileFsDataCopyInformation, // FILE_FS_DATA_COPY_INFORMATION
+    FileFsVolumeInformation = 1,   // FILE_FS_VOLUME_INFORMATION
+    FileFsLabelInformation,        // FILE_FS_LABEL_INFORMATION
+    FileFsSizeInformation,         // FILE_FS_SIZE_INFORMATION
+    FileFsDeviceInformation,       // FILE_FS_DEVICE_INFORMATION
+    FileFsAttributeInformation,    // FILE_FS_ATTRIBUTE_INFORMATION
+    FileFsControlInformation,      // FILE_FS_CONTROL_INFORMATION
+    FileFsFullSizeInformation,     // FILE_FS_FULL_SIZE_INFORMATION
+    FileFsObjectIdInformation,     // FILE_FS_OBJECTID_INFORMATION
+    FileFsDriverPathInformation,   // FILE_FS_DRIVER_PATH_INFORMATION
+    FileFsVolumeFlagsInformation,  // FILE_FS_VOLUME_FLAGS_INFORMATION
+    FileFsSectorSizeInformation,   // FILE_FS_SECTOR_SIZE_INFORMATION // since WIN8
+    FileFsDataCopyInformation,     // FILE_FS_DATA_COPY_INFORMATION
     FileFsMetadataSizeInformation, // FILE_FS_METADATA_SIZE_INFORMATION // since THRESHOLD
     FileFsMaximumInformation
-} FSINFOCLASS, *PFSINFOCLASS;
+} FSINFOCLASS,
+    *PFSINFOCLASS;
 
 // NtQueryVolumeInformation/NtSetVolumeInformation types
 
@@ -1023,8 +1030,7 @@ NtCreateFile(
     _In_ ULONG CreateDisposition,
     _In_ ULONG CreateOptions,
     _In_reads_bytes_opt_(EaLength) PVOID EaBuffer,
-    _In_ ULONG EaLength
-    );
+    _In_ ULONG EaLength);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1043,8 +1049,7 @@ NtCreateNamedPipeFile(
     _In_ ULONG MaximumInstances,
     _In_ ULONG InboundQuota,
     _In_ ULONG OutboundQuota,
-    _In_opt_ PLARGE_INTEGER DefaultTimeout
-    );
+    _In_opt_ PLARGE_INTEGER DefaultTimeout);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1057,8 +1062,7 @@ NtCreateMailslotFile(
     _In_ ULONG CreateOptions,
     _In_ ULONG MailslotQuota,
     _In_ ULONG MaximumMessageSize,
-    _In_ PLARGE_INTEGER ReadTimeout
-    );
+    _In_ PLARGE_INTEGER ReadTimeout);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1069,23 +1073,20 @@ NtOpenFile(
     _In_ POBJECT_ATTRIBUTES ObjectAttributes,
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _In_ ULONG ShareAccess,
-    _In_ ULONG OpenOptions
-    );
+    _In_ ULONG OpenOptions);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtDeleteFile(
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtFlushBuffersFile(
     _In_ HANDLE FileHandle,
-    _Out_ PIO_STATUS_BLOCK IoStatusBlock
-    );
+    _Out_ PIO_STATUS_BLOCK IoStatusBlock);
 
 #define FLUSH_FLAGS_FILE_DATA_ONLY 0x00000001
 #define FLUSH_FLAGS_NO_SYNC 0x00000002
@@ -1099,8 +1100,7 @@ NtFlushBuffersFileEx(
     _In_ ULONG Flags,
     _In_reads_bytes_(ParametersSize) PVOID Parameters,
     _In_ ULONG ParametersSize,
-    _Out_ PIO_STATUS_BLOCK IoStatusBlock
-    );
+    _Out_ PIO_STATUS_BLOCK IoStatusBlock);
 #endif
 
 NTSYSCALLAPI
@@ -1111,8 +1111,7 @@ NtQueryInformationFile(
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _Out_writes_bytes_(Length) PVOID FileInformation,
     _In_ ULONG Length,
-    _In_ FILE_INFORMATION_CLASS FileInformationClass
-    );
+    _In_ FILE_INFORMATION_CLASS FileInformationClass);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1122,8 +1121,7 @@ NtSetInformationFile(
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _In_reads_bytes_(Length) PVOID FileInformation,
     _In_ ULONG Length,
-    _In_ FILE_INFORMATION_CLASS FileInformationClass
-    );
+    _In_ FILE_INFORMATION_CLASS FileInformationClass);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1139,8 +1137,7 @@ NtQueryDirectoryFile(
     _In_ FILE_INFORMATION_CLASS FileInformationClass,
     _In_ BOOLEAN ReturnSingleEntry,
     _In_opt_ PUNICODE_STRING FileName,
-    _In_ BOOLEAN RestartScan
-    );
+    _In_ BOOLEAN RestartScan);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1154,8 +1151,7 @@ NtQueryEaFile(
     _In_reads_bytes_opt_(EaListLength) PVOID EaList,
     _In_ ULONG EaListLength,
     _In_opt_ PULONG EaIndex,
-    _In_ BOOLEAN RestartScan
-    );
+    _In_ BOOLEAN RestartScan);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1164,8 +1160,7 @@ NtSetEaFile(
     _In_ HANDLE FileHandle,
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _In_reads_bytes_(Length) PVOID Buffer,
-    _In_ ULONG Length
-    );
+    _In_ ULONG Length);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1179,8 +1174,7 @@ NtQueryQuotaInformationFile(
     _In_reads_bytes_opt_(SidListLength) PVOID SidList,
     _In_ ULONG SidListLength,
     _In_opt_ PSID StartSid,
-    _In_ BOOLEAN RestartScan
-    );
+    _In_ BOOLEAN RestartScan);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1189,8 +1183,7 @@ NtSetQuotaInformationFile(
     _In_ HANDLE FileHandle,
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _In_reads_bytes_(Length) PVOID Buffer,
-    _In_ ULONG Length
-    );
+    _In_ ULONG Length);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1200,8 +1193,7 @@ NtQueryVolumeInformationFile(
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _Out_writes_bytes_(Length) PVOID FsInformation,
     _In_ ULONG Length,
-    _In_ FSINFOCLASS FsInformationClass
-    );
+    _In_ FSINFOCLASS FsInformationClass);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1211,16 +1203,14 @@ NtSetVolumeInformationFile(
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _In_reads_bytes_(Length) PVOID FsInformation,
     _In_ ULONG Length,
-    _In_ FSINFOCLASS FsInformationClass
-    );
+    _In_ FSINFOCLASS FsInformationClass);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtCancelIoFile(
     _In_ HANDLE FileHandle,
-    _Out_ PIO_STATUS_BLOCK IoStatusBlock
-    );
+    _Out_ PIO_STATUS_BLOCK IoStatusBlock);
 
 #if (PHNT_VERSION >= PHNT_VISTA)
 NTSYSCALLAPI
@@ -1229,8 +1219,7 @@ NTAPI
 NtCancelIoFileEx(
     _In_ HANDLE FileHandle,
     _In_opt_ PIO_STATUS_BLOCK IoRequestToCancel,
-    _Out_ PIO_STATUS_BLOCK IoStatusBlock
-    );
+    _Out_ PIO_STATUS_BLOCK IoStatusBlock);
 #endif
 
 #if (PHNT_VERSION >= PHNT_VISTA)
@@ -1240,8 +1229,7 @@ NTAPI
 NtCancelSynchronousIoFile(
     _In_ HANDLE ThreadHandle,
     _In_opt_ PIO_STATUS_BLOCK IoRequestToCancel,
-    _Out_ PIO_STATUS_BLOCK IoStatusBlock
-    );
+    _Out_ PIO_STATUS_BLOCK IoStatusBlock);
 #endif
 
 NTSYSCALLAPI
@@ -1257,8 +1245,7 @@ NtDeviceIoControlFile(
     _In_reads_bytes_opt_(InputBufferLength) PVOID InputBuffer,
     _In_ ULONG InputBufferLength,
     _Out_writes_bytes_opt_(OutputBufferLength) PVOID OutputBuffer,
-    _In_ ULONG OutputBufferLength
-    );
+    _In_ ULONG OutputBufferLength);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1273,8 +1260,7 @@ NtFsControlFile(
     _In_reads_bytes_opt_(InputBufferLength) PVOID InputBuffer,
     _In_ ULONG InputBufferLength,
     _Out_writes_bytes_opt_(OutputBufferLength) PVOID OutputBuffer,
-    _In_ ULONG OutputBufferLength
-    );
+    _In_ ULONG OutputBufferLength);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1288,8 +1274,7 @@ NtReadFile(
     _Out_writes_bytes_(Length) PVOID Buffer,
     _In_ ULONG Length,
     _In_opt_ PLARGE_INTEGER ByteOffset,
-    _In_opt_ PULONG Key
-    );
+    _In_opt_ PULONG Key);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1303,8 +1288,7 @@ NtWriteFile(
     _In_reads_bytes_(Length) PVOID Buffer,
     _In_ ULONG Length,
     _In_opt_ PLARGE_INTEGER ByteOffset,
-    _In_opt_ PULONG Key
-    );
+    _In_opt_ PULONG Key);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1318,8 +1302,7 @@ NtReadFileScatter(
     _In_ PFILE_SEGMENT_ELEMENT SegmentArray,
     _In_ ULONG Length,
     _In_opt_ PLARGE_INTEGER ByteOffset,
-    _In_opt_ PULONG Key
-    );
+    _In_opt_ PULONG Key);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1333,8 +1316,7 @@ NtWriteFileGather(
     _In_ PFILE_SEGMENT_ELEMENT SegmentArray,
     _In_ ULONG Length,
     _In_opt_ PLARGE_INTEGER ByteOffset,
-    _In_opt_ PULONG Key
-    );
+    _In_opt_ PULONG Key);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1349,8 +1331,7 @@ NtLockFile(
     _In_ PLARGE_INTEGER Length,
     _In_ ULONG Key,
     _In_ BOOLEAN FailImmediately,
-    _In_ BOOLEAN ExclusiveLock
-    );
+    _In_ BOOLEAN ExclusiveLock);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1360,24 +1341,21 @@ NtUnlockFile(
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
     _In_ PLARGE_INTEGER ByteOffset,
     _In_ PLARGE_INTEGER Length,
-    _In_ ULONG Key
-    );
+    _In_ ULONG Key);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryAttributesFile(
     _In_ POBJECT_ATTRIBUTES ObjectAttributes,
-    _Out_ PFILE_BASIC_INFORMATION FileInformation
-    );
+    _Out_ PFILE_BASIC_INFORMATION FileInformation);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtQueryFullAttributesFile(
     _In_ POBJECT_ATTRIBUTES ObjectAttributes,
-    _Out_ PFILE_NETWORK_OPEN_INFORMATION FileInformation
-    );
+    _Out_ PFILE_NETWORK_OPEN_INFORMATION FileInformation);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1391,22 +1369,19 @@ NtNotifyChangeDirectoryFile(
     _Out_writes_bytes_(Length) PVOID Buffer, // FILE_NOTIFY_INFORMATION
     _In_ ULONG Length,
     _In_ ULONG CompletionFilter,
-    _In_ BOOLEAN WatchTree
-    );
+    _In_ BOOLEAN WatchTree);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtLoadDriver(
-    _In_ PUNICODE_STRING DriverServiceName
-    );
+    _In_ PUNICODE_STRING DriverServiceName);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtUnloadDriver(
-    _In_ PUNICODE_STRING DriverServiceName
-    );
+    _In_ PUNICODE_STRING DriverServiceName);
 
 // I/O completion port
 
@@ -1431,8 +1406,7 @@ NtCreateIoCompletion(
     _Out_ PHANDLE IoCompletionHandle,
     _In_ ACCESS_MASK DesiredAccess,
     _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes,
-    _In_opt_ ULONG Count
-    );
+    _In_opt_ ULONG Count);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1440,8 +1414,7 @@ NTAPI
 NtOpenIoCompletion(
     _Out_ PHANDLE IoCompletionHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1451,8 +1424,7 @@ NtQueryIoCompletion(
     _In_ IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
     _Out_writes_bytes_(IoCompletionInformation) PVOID IoCompletionInformation,
     _In_ ULONG IoCompletionInformationLength,
-    _Out_opt_ PULONG ReturnLength
-    );
+    _Out_opt_ PULONG ReturnLength);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1462,8 +1434,7 @@ NtSetIoCompletion(
     _In_opt_ PVOID KeyContext,
     _In_opt_ PVOID ApcContext,
     _In_ NTSTATUS IoStatus,
-    _In_ ULONG_PTR IoStatusInformation
-    );
+    _In_ ULONG_PTR IoStatusInformation);
 
 #if (PHNT_VERSION >= PHNT_WIN7)
 NTSYSCALLAPI
@@ -1475,8 +1446,7 @@ NtSetIoCompletionEx(
     _In_opt_ PVOID KeyContext,
     _In_opt_ PVOID ApcContext,
     _In_ NTSTATUS IoStatus,
-    _In_ ULONG_PTR IoStatusInformation
-    );
+    _In_ ULONG_PTR IoStatusInformation);
 #endif
 
 NTSYSCALLAPI
@@ -1487,8 +1457,7 @@ NtRemoveIoCompletion(
     _Out_ PVOID *KeyContext,
     _Out_ PVOID *ApcContext,
     _Out_ PIO_STATUS_BLOCK IoStatusBlock,
-    _In_opt_ PLARGE_INTEGER Timeout
-    );
+    _In_opt_ PLARGE_INTEGER Timeout);
 
 #if (PHNT_VERSION >= PHNT_VISTA)
 NTSYSCALLAPI
@@ -1500,8 +1469,7 @@ NtRemoveIoCompletionEx(
     _In_ ULONG Count,
     _Out_ PULONG NumEntriesRemoved,
     _In_opt_ PLARGE_INTEGER Timeout,
-    _In_ BOOLEAN Alertable
-    );
+    _In_ BOOLEAN Alertable);
 #endif
 
 // Wait completion packet
@@ -1514,8 +1482,7 @@ NTAPI
 NtCreateWaitCompletionPacket(
     _Out_ PHANDLE WaitCompletionPacketHandle,
     _In_ ACCESS_MASK DesiredAccess,
-    _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes
-    );
+    _In_opt_ POBJECT_ATTRIBUTES ObjectAttributes);
 
 NTSYSCALLAPI
 NTSTATUS
@@ -1528,16 +1495,14 @@ NtAssociateWaitCompletionPacket(
     _In_opt_ PVOID ApcContext,
     _In_ NTSTATUS IoStatus,
     _In_ ULONG_PTR IoStatusInformation,
-    _Out_opt_ PBOOLEAN AlreadySignaled
-    );
+    _Out_opt_ PBOOLEAN AlreadySignaled);
 
 NTSYSCALLAPI
 NTSTATUS
 NTAPI
 NtCancelWaitCompletionPacket(
     _In_ HANDLE WaitCompletionPacketHandle,
-    _In_ BOOLEAN RemoveSignaledPacket
-    );
+    _In_ BOOLEAN RemoveSignaledPacket);
 
 #endif
 
@@ -1580,8 +1545,7 @@ NtNotifyChangeSession(
     _In_ IO_SESSION_STATE NewState,
     _In_ IO_SESSION_STATE PreviousState,
     _In_reads_bytes_opt_(PayloadSize) PVOID Payload,
-    _In_ ULONG PayloadSize
-    );
+    _In_ ULONG PayloadSize);
 #endif
 
 // Other types
@@ -1607,7 +1571,8 @@ typedef enum _INTERFACE_TYPE
     PNPBus,
     Vmcs,
     MaximumInterfaceType
-} INTERFACE_TYPE, *PINTERFACE_TYPE;
+} INTERFACE_TYPE,
+    *PINTERFACE_TYPE;
 
 typedef enum _DMA_WIDTH
 {
@@ -1615,7 +1580,8 @@ typedef enum _DMA_WIDTH
     Width16Bits,
     Width32Bits,
     MaximumDmaWidth
-} DMA_WIDTH, *PDMA_WIDTH;
+} DMA_WIDTH,
+    *PDMA_WIDTH;
 
 typedef enum _DMA_SPEED
 {
@@ -1625,7 +1591,8 @@ typedef enum _DMA_SPEED
     TypeC,
     TypeF,
     MaximumDmaSpeed
-} DMA_SPEED, *PDMA_SPEED;
+} DMA_SPEED,
+    *PDMA_SPEED;
 
 typedef enum _BUS_DATA_TYPE
 {
@@ -1643,7 +1610,8 @@ typedef enum _BUS_DATA_TYPE
     PNPISAConfiguration,
     SgiInternalConfiguration,
     MaximumBusDataType
-} BUS_DATA_TYPE, *PBUS_DATA_TYPE;
+} BUS_DATA_TYPE,
+    *PBUS_DATA_TYPE;
 
 // Control structures
 
@@ -1686,28 +1654,28 @@ typedef struct _REPARSE_DATA_BUFFER
 
 #define DEVICE_NAMED_PIPE L"\\Device\\NamedPipe\\"
 
-#define FSCTL_PIPE_ASSIGN_EVENT             CTL_CODE(FILE_DEVICE_NAMED_PIPE, 0, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_DISCONNECT               CTL_CODE(FILE_DEVICE_NAMED_PIPE, 1, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_LISTEN                   CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_PEEK                     CTL_CODE(FILE_DEVICE_NAMED_PIPE, 3, METHOD_BUFFERED, FILE_READ_DATA)
-#define FSCTL_PIPE_QUERY_EVENT              CTL_CODE(FILE_DEVICE_NAMED_PIPE, 4, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_TRANSCEIVE               CTL_CODE(FILE_DEVICE_NAMED_PIPE, 5, METHOD_NEITHER,  FILE_READ_DATA | FILE_WRITE_DATA)
-#define FSCTL_PIPE_WAIT                     CTL_CODE(FILE_DEVICE_NAMED_PIPE, 6, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_IMPERSONATE              CTL_CODE(FILE_DEVICE_NAMED_PIPE, 7, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_SET_CLIENT_PROCESS       CTL_CODE(FILE_DEVICE_NAMED_PIPE, 8, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_QUERY_CLIENT_PROCESS     CTL_CODE(FILE_DEVICE_NAMED_PIPE, 9, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_GET_PIPE_ATTRIBUTE       CTL_CODE(FILE_DEVICE_NAMED_PIPE, 10, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_SET_PIPE_ATTRIBUTE       CTL_CODE(FILE_DEVICE_NAMED_PIPE, 11, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_ASSIGN_EVENT CTL_CODE(FILE_DEVICE_NAMED_PIPE, 0, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_DISCONNECT CTL_CODE(FILE_DEVICE_NAMED_PIPE, 1, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_LISTEN CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_PEEK CTL_CODE(FILE_DEVICE_NAMED_PIPE, 3, METHOD_BUFFERED, FILE_READ_DATA)
+#define FSCTL_PIPE_QUERY_EVENT CTL_CODE(FILE_DEVICE_NAMED_PIPE, 4, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_TRANSCEIVE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 5, METHOD_NEITHER, FILE_READ_DATA | FILE_WRITE_DATA)
+#define FSCTL_PIPE_WAIT CTL_CODE(FILE_DEVICE_NAMED_PIPE, 6, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_IMPERSONATE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 7, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_SET_CLIENT_PROCESS CTL_CODE(FILE_DEVICE_NAMED_PIPE, 8, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_QUERY_CLIENT_PROCESS CTL_CODE(FILE_DEVICE_NAMED_PIPE, 9, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_GET_PIPE_ATTRIBUTE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 10, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_SET_PIPE_ATTRIBUTE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 11, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define FSCTL_PIPE_GET_CONNECTION_ATTRIBUTE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 12, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define FSCTL_PIPE_SET_CONNECTION_ATTRIBUTE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 13, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_GET_HANDLE_ATTRIBUTE     CTL_CODE(FILE_DEVICE_NAMED_PIPE, 14, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_SET_HANDLE_ATTRIBUTE     CTL_CODE(FILE_DEVICE_NAMED_PIPE, 15, METHOD_BUFFERED, FILE_ANY_ACCESS)
-#define FSCTL_PIPE_FLUSH                    CTL_CODE(FILE_DEVICE_NAMED_PIPE, 16, METHOD_BUFFERED, FILE_WRITE_DATA)
+#define FSCTL_PIPE_GET_HANDLE_ATTRIBUTE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 14, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_SET_HANDLE_ATTRIBUTE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 15, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define FSCTL_PIPE_FLUSH CTL_CODE(FILE_DEVICE_NAMED_PIPE, 16, METHOD_BUFFERED, FILE_WRITE_DATA)
 
-#define FSCTL_PIPE_INTERNAL_READ            CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2045, METHOD_BUFFERED, FILE_READ_DATA)
-#define FSCTL_PIPE_INTERNAL_WRITE           CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2046, METHOD_BUFFERED, FILE_WRITE_DATA)
-#define FSCTL_PIPE_INTERNAL_TRANSCEIVE      CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2047, METHOD_NEITHER, FILE_READ_DATA | FILE_WRITE_DATA)
-#define FSCTL_PIPE_INTERNAL_READ_OVFLOW     CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2048, METHOD_BUFFERED, FILE_READ_DATA)
+#define FSCTL_PIPE_INTERNAL_READ CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2045, METHOD_BUFFERED, FILE_READ_DATA)
+#define FSCTL_PIPE_INTERNAL_WRITE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2046, METHOD_BUFFERED, FILE_WRITE_DATA)
+#define FSCTL_PIPE_INTERNAL_TRANSCEIVE CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2047, METHOD_NEITHER, FILE_READ_DATA | FILE_WRITE_DATA)
+#define FSCTL_PIPE_INTERNAL_READ_OVFLOW CTL_CODE(FILE_DEVICE_NAMED_PIPE, 2048, METHOD_BUFFERED, FILE_READ_DATA)
 
 // Flags for query event
 
@@ -1774,7 +1742,7 @@ typedef struct _FILE_PIPE_CLIENT_PROCESS_BUFFER_EX
     ULONGLONG ClientSession;
     ULONGLONG ClientProcess;
 #endif
-    USHORT ClientComputerNameLength; // in bytes
+    USHORT ClientComputerNameLength;                                // in bytes
     WCHAR ClientComputerBuffer[FILE_PIPE_COMPUTER_NAME_LENGTH + 1]; // null-terminated
 } FILE_PIPE_CLIENT_PROCESS_BUFFER_EX, *PFILE_PIPE_CLIENT_PROCESS_BUFFER_EX;
 
@@ -1783,7 +1751,7 @@ typedef struct _FILE_PIPE_CLIENT_PROCESS_BUFFER_EX
 #define MAILSLOT_CLASS_FIRSTCLASS 1
 #define MAILSLOT_CLASS_SECONDCLASS 2
 
-#define FSCTL_MAILSLOT_PEEK             CTL_CODE(FILE_DEVICE_MAILSLOT, 0, METHOD_NEITHER, FILE_READ_DATA)
+#define FSCTL_MAILSLOT_PEEK CTL_CODE(FILE_DEVICE_MAILSLOT, 0, METHOD_NEITHER, FILE_READ_DATA)
 
 // Output for FSCTL_MAILSLOT_PEEK
 typedef struct _FILE_MAILSLOT_PEEK_BUFFER
